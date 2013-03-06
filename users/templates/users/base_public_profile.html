@@ -1,0 +1,34 @@
+{% extends "loggedin.html" %}
+{% load thumbnail %}
+{% block title %}User Profile{% endblock %}
+{% block content %}
+        <div class="row-fluid">
+            <div class="span2">
+                <br />
+                <div>
+                    {% thumbnail userprofile.picture "100x100" crop="center" as im %}
+                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                    {% empty %}
+                    {% endthumbnail %}
+                </div>
+                <br />
+                <p><a class="btn btn_sndmsg" href="{% url messages_compose_to recipient=userprofile.user.username %}">Send Message</a></p>
+            </div>
+            
+            <div class="span6">
+                <div>
+                    <h2>{{ userprofile.user.get_full_name }} <span>({{ userprofile.get_user_type }})</span></h2>
+                    <p>{{ userprofile.get_location }}</p>
+
+                </div>
+
+                {% if userprofile.bio.strip %}
+                    <h4>About {{ userprofile.user.first_name }}</h4>
+                    {{ userprofile.bio|linebreaks }}
+                {% endif %}
+
+                {% block extra_profile_content %}
+                {% endblock extra_profile_content %}
+            </div>
+        </div>
+{% endblock %}

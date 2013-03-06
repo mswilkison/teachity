@@ -1,0 +1,82 @@
+{%extends "loggedin.html" %}
+{% block title %}Fill out your profile{% endblock %}
+{% block content %}
+<section>
+    <article>
+        <div class="loginpnl tutor-pro fl">
+            <h2>Create your profile </h2>
+            <form id="frm_reg">
+                <label>Name</label><div class="textbox"> <input type="text" id=""     /> </div>
+                <div class="clear"></div>
+                 
+                <label>Email Address</label><div class="textbox"> <input type="text" id=""     /> </div>
+                <div class="clear"></div>
+                 
+                <label>City</label><div class="textbox"> <input type="text" id=""     /> </div>
+                <div class="clear"></div>
+                 
+                <label>Country</label> 
+                <div class="ddl"> 
+                    <select id="ddl_country" class="styled"> 
+                        <option>--Select country--</option>
+                    </select>
+                </div>
+                <div class="clear"></div>
+                                  
+                <label>Time Zone</label> 
+                <div class="ddl"> 
+                   <select id="ddl_timezone" class="styled"> 
+                       <option>--Select timezone--</option>
+                   </select>
+                </div>
+                <div class="clear"></div>
+
+                <label>About</label> 
+                <div class="textarea">
+                   <textarea id=""></textarea>
+                </div>
+                <div class="clear"></div>
+                 
+                <label>Upload Resume</label>
+                   <div class="ddl"> <a href="#">Upload from LinkedIn</a></div>
+                <div class="clear"></div>
+                 
+                <label>Skills</label> 
+                <div class="textarea">
+                   <textarea id=""></textarea>
+                </div>
+                <div class="clear"></div>
+                 
+                <label style="line-height:normal">Company/School/<br />Institution </label> 
+                <div class="textbox"> <input type="text" id=""     /> </div>
+                <div class="clear"></div>
+
+                <label>Other Qualifications</label>
+                <div class="textarea">
+                   <textarea id=""></textarea>
+                </div>
+                <div class="clear"></div>
+
+                <label>Upload your image</label>  
+                <div class="textarea">
+                   <div class="fileinputs"><input type="file" class="file" /></div>
+                </div>
+                <div class="clear"></div>
+
+                <input type="submit" class=""> 
+                <div class="clear"></div>
+            </form>                           
+        </div> 
+         
+        <div class="loginpnlR  fr" style="padding-top:25px">
+            <h2 class="proh2">Make sure your profile is complete</h2>
+            <h3 class="proh3">so that learners can make a good decision</h3>
+            <p>Morbi turpis odio, luctus sit amet cursus et, adipiscing eu turpis. Proin laoreet, elit eu tincidunt lacinia, lacus enim malesuada dui, Morbi turp is odio.</p> <br/ >
+            <br />
+            <img src="{{STATIC_URL }}images/accessories/tutor-profile.jpg" width="375" />
+        </div>
+         
+         <div class="clear"></div>
+    </article>
+</section>
+{% endblock %}

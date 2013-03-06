@@ -1,0 +1,12 @@
+{% for project in project_list %}
+    <div class="bs-docs-example">
+        <h2><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></h2>
+        <h5>Posted By: <a href="{{ project.student.get_absolute_url }}">{{ project.student }}</a></h3>
+        <p>{{ project.description|truncatewords:50 }}</p>
+        <ul class="footer-links">
+            <li>Category : <a href="#">{{ project.category }}</a></li>
+            <li>Bids: {{ project.project_bids.count }}</li>
+            <li>Status : <a href="#">{{ project.get_status }}</a></li>
+        </ul>
+    </div>
+{% endfor %}

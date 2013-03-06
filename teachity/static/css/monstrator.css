@@ -1,0 +1,599 @@
+/*    
+Monstartat.com
+Base Css
+develop by : Poonam 
+company : NMG
+*/
+
+
+
+
+@charset "utf-8";
+
+
+
+/* Reset Css */
+* {	margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; }
+ul { list-style:none; }
+blockquote, q { quotes:none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+a { font-size:100%; vertical-align:baseline; background:transparent; text-decoration:none}
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+del { text-decoration: line-through; }
+abbr[title], dfn[title] { border-bottom:1px dotted #000; cursor:help; }
+a img {border:none}
+
+h1, h2, h3, h4, h5, h6 {font-weight:normal; line-height:normal}
+
+/* tables still need cellspacing="0" in the markup */
+table { border-collapse:collapse; border-spacing:0; }
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+/* END RESET CSS */
+
+
+/* Hand Cursor for Clickable Element */
+input[type=button], input[type=submit], button { cursor: pointer; font-size:0; line-height:0; /*text-indent:-9999px;*/ display:block }
+/* input, select { vertical-align:middle; } */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline; }
+input[type=text],input[type=password], textarea {font-family: 'GeorgiaRegular'; font-size:14px; color:#3D5B58 }
+
+/* Css Hack for Html 5 */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+
+/*  css */
+.clear {clear:both}
+.fl {float:left!important}
+.fr {float:right!important}
+.no-pad {padding:0px!important}
+.no-margin {margin:0px!important}
+.npdl {padding-left:0px!important}
+.npdr {padding-right:0px!important}
+.npdt {padding-top:0px!important}
+.npdb {padding-bottom:0px!important}
+
+.nmrl {margin-left:0px!important }
+.nmrr {margin-right:0px!important }
+.nmrt {margin-top:0px!important }
+.nmrb {margin-bottom:0px!important }
+.bdr-none {border:none!important}
+.bdrb-none {border-bottom:none!important}
+.bg-none {background:none!important }
+
+
+
+/* font face */
+@font-face {
+    font-family: 'GeorgiaBold';
+    src: url('fonts/georgia-bold-webfont.eot');
+    src: url('fonts/georgia-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/georgia-bold-webfont.woff') format('woff'),
+         url('fonts/georgia-bold-webfont.ttf') format('truetype'),
+         url('fonts/georgia-bold-webfont.svg#GeorgiaBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GeorgiaItalic';
+    src: url('fonts/georgia-italic-webfont.eot');
+    src: url('fonts/georgia-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/georgia-italic-webfont.woff') format('woff'),
+         url('fonts/georgia-italic-webfont.ttf') format('truetype'),
+         url('fonts/georgia-italic-webfont.svg#GeorgiaItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GeorgiaRegular';
+    src: url('fonts/georgia-regular-webfont.eot');
+    src: url('fonts/georgia-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/georgia-regular-webfont.woff') format('woff'),
+         url('fonts/georgia-regular-webfont.ttf') format('truetype'),
+         url('fonts/georgia-regular-webfont.svg#GeorgiaRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GeorgiaBoldItalic';
+    src: url('fonts/georgia-boldit-webfont.eot');
+    src: url('fonts/georgia-boldit-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/georgia-boldit-webfont.woff') format('woff'),
+         url('fonts/georgia-boldit-webfont.ttf') format('truetype'),
+         url('fonts/georgia-boldit-webfont.svg#GeorgiaBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/* Rockwell FontFace */
+@font-face {
+    font-family: 'RockwellRegular';
+    src: url('fonts/rock-webfont.eot');
+    src: url('fonts/rock-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rock-webfont.woff') format('woff'),
+         url('fonts/rock-webfont.ttf') format('truetype'),
+         url('fonts/rock-webfont.svg#RockwellRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'RockwellBold';
+    src: url('fonts/rockb-webfont.eot');
+    src: url('fonts/rockb-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rockb-webfont.woff') format('woff'),
+         url('fonts/rockb-webfont.ttf') format('truetype'),
+         url('fonts/rockb-webfont.svg#RockwellBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'RockwellItalic';
+    src: url('fonts/rocki-webfont.eot');
+    src: url('fonts/rocki-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rocki-webfont.woff') format('woff'),
+         url('fonts/rocki-webfont.ttf') format('truetype'),
+         url('fonts/rocki-webfont.svg#RockwellItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+ 
+
+html { -webkit-font-smoothing: antialiased; overflow-y:scroll }
+body { padding:0; margin:0; font:normal 13px/18px 'GeorgiaRegular', Georgia, Times, serif; }
+
+
+
+/* Header Section */
+header {display:block; background:#3d5b58; border-bottom:solid 1px #fff; width:100%;}
+header nav, header #top-nav {width:970px; margin:0 auto; display:block; height:49px; background:none; border-bottom:none} 
+header nav h2 {font:normal 36px "RockwellRegular", arial; color:#fff; width:150px; line-height:49px}
+header nav h2 a {color:#fff;}
+header nav ul li  {font-size:14px; color:#fff; line-height:50px; float:left }
+header nav ul li a {color:#fff; line-height:50px; display:block; padding:0 10px}
+header nav ul li a img {padding:6px 0 0 }
+header nav ul li a:hover {text-decoration:underline}
+header nav ul.ul-logout a {text-decoration:underline }
+
+
+/* navigation lerner Page */
+nav {display:block; height:37px; border-bottom:solid 1px #fff; width:100%; background:#203432}
+nav nav {width:970px; display:block; margin:0 auto; border-bottom:0px; clear:both; height:36px}
+nav nav ul li {float:left; border-right:solid 1px #fff; }
+nav nav ul li a {font-size:14px; padding:0 28px; display:block; line-height:36px; text-transform:uppercase; color:#fff;}
+nav nav ul li a:hover {text-decoration:underline}
+
+nav nav .tuter-search {width:310px; margin-top:5px;}
+nav nav .tuter-search input[type=text]{width:185px; height:29px; background:url(../images/inputs/tuter-txt-bg.png) 0 0 repeat-x scroll; line-height:27px; color:#fff; padding:0 3px; margin:0px; display:block;
+border:0; position:relative}
+nav nav .tuter-search input[type=button]{width:32px; height:29px; background:url(../images/inputs/tuter-s-btn.png) 0 0 no-repeat scroll; display:block }
+
+
+/* Section */
+section {width:100%; background:url(../images/bg/section-bg.jpg) 0 0 repeat-x scroll; padding:0}
+section.home {width:100%; background:url(../images/bg/section-bg.jpg) 0 0 repeat-x scroll!important; padding:0}
+
+
+section .section-div {width:970px; margin:0 auto; background:url(../images/bg/section-div-bg.jpg) 0 0 no-repeat scroll; position:relative}
+section .section-div .watch-video {position:absolute; left:45%; top:20px; }
+
+.section-div .search-box {margin:47px 0 48px 256px; display:block; height:39px; float:left; width:500px }
+.section-div .search-box img {float:left; cursor:pointer; width:92px}
+.section-div .search-box input[type=text] {width:360px; height:38px; background:url(../images/inputs/search-text-bg.png) 0 0 repeat-x scroll; display:block; float:left; line-height:36px; font-size:20px; }
+.section-div .search-box input[type=submit], .section-div .search-box input[type=button] {width:37px; height:38px; background:url(../images/inputs/search-home-btn.png) 0 0 no-repeat scroll; display:block; float:left; }
+.section-div .text-img {display:block; text-align:center }
+.section-div h3 {display:block; font-size:16px; color:#fff; padding-bottom:5px}
+.section-div h2 {font-family: 'GeorgiaItalic'; font-size:24px; padding:10px 0 15px; text-align:center; font:#fff; text-decoration:underline; color:#fff; cursor:pointer}
+.section-div .how-itwork {display:none;}
+
+/*artical section */
+section {width:100%; background: 0 0 repeat-x scroll;}
+section article  {width:970px; padding:20px 0 40px 0; margin:0 auto; background:none }
+
+
+
+/* Static Page Contents */
+
+section article .page-section {display:block }
+section article .page-section h2 {font:normal 33px 'GeorgiaItalic'; display:block; color:#3d5b58; padding-bottom:50px }
+section article .page-nav {width:165px; float:left; margin-right:30px;}
+section article .page-nav ul li {padding-bottom:15px; margin-bottom:15px; border-bottom:dotted 1px #3d5b58}
+section article .page-nav ul li a { color:#3d5b58; font-family: 'GeorgiaRegular'; font-size:14px}
+section article .page-nav ul li.page-active a{color:#3d5b58; font-family: 'GeorgiaBold'; font-size:14px}
+
+section article .page-desc {width:750px; float:left}
+section article .page-desc  p {font-size:14px; color:#3d5b58; line-height:18px; margin-bottom:25px;}
+section article .page-desc .contact-us-form {display:block}
+section article .page-desc .contact-us-form label {color:#3d5b58; font-family: 'GeorgiaRegular'; font-size:14px; display:block; line-height:31px; width:125px; float:left}
+section article .page-desc .contact-us-form .textbox {display:block; width:245px; float:left; padding:0 5px 0 7px; font-size:18px; color:#3d5b58;  margin:10px 0 10px 10px; background:url(../images/inputs/txt_bg.png) 0 0 no-repeat scroll;}
+section article .page-desc .contact-us-form .textbox input[type=text] {border:0; background:fff; width:235px; margin:2px 0px; height:27px; line-height:27px}
+
+section article .page-desc .contact-us-form .textarea  {width:270px; display:block; float:left; margin:10px 0 10px 10px;  }
+section article .page-desc .contact-us-form .textarea textarea {width:247px; height:67px; background:url(../images/inputs/lerner_textarea_bg.png) 0 0 no-repeat scroll; resize:none; padding:5px; overflow:auto; margin:0px}
+section article .page-desc .contact-us-form input[type=submit] {width:87px; height:38px; background:url(../images/inputs/btn_submit.png) 0 0 no-repeat scroll; display:block; float:left; margin-left:130px }
+
+/* other page */
+.column {width:275px; border-top:solid 4px #bfc3c3; height:330px; }
+.column h3 {font:normal 22px 'GeorgiaItalic'; color:#8b0212; padding:5px 0; }
+.column p {font:normal 15px 'GeorgiaItalic';  padding:5px 0; color:#27393c}
+.column ul li {background:url(../images/arrows/right.png) 0 4px no-repeat scroll; padding-left:25px; font:normal 13px 'GeorgiaItalic'; color:#27393c; display:block; line-height:20px; margin-bottom:4px; }
+.mgr-100 {margin-right:100px} 
+.mgl-100 {margin-left:100px} 
+.mgl-175 {margin-left:175px!important} 
+
+.columnHover {border-top:solid 4px #8B0212!important;  }
+.categroies {width:175px!important; }
+.categroies li {background:url(../images/arrows/rhgit-arrow.png) 0 4px no-repeat scroll!important; border-bottom:dotted 1px #9dbabf; display:block; padding-bottom:3px; font-size:14px; padding-left:18px!important;  }
+.width-206 {width:206px!important; }
+.scrolling {position:relative; overflow:hidden; width:206px; padding-top:10px}
+#howit {width:100%; display:block }
+section.future-proj {background:#f9fbfb!important;}
+section.future-proj article {padding:30px 0 25px 0; margin:0 auto; background:none }
+.column2 {width:450px; display:block}
+.column2 h3 {font:normal 22px 'GeorgiaItalic'; color:#8b0212; padding:5px 0; display:block }
+.column2 h4 {font:normal 14px 'GeorgiaItalic'; color:#27393c; padding:5px 0; display:block}
+.column2 p { color:#596769; padding:0px 0 10px; border-bottom:dotted 1px #606c6e; display:block}
+.column2 ul li {float:left; display:block; width:210px; margin:15px 10px 15px 0 }
+.column2 ul li img {float:left; display:block; margin-right:10px }
+.column2 ul li h5 {display:block; color:#067ca3; font:normal 15px 'GeorgiaItalic'; padding:2px 0 0 0}
+.column2 ul li span {display:block; font:normal 15px 'GeorgiaItalic'; color:#717374; padding:2px 0 0 0} 
+
+/* -------------------- Login & Registration pages ---------------------------------- */
+
+.loginpnl {width:445px!important; display:block; padding:25px 0 0 10px;  }
+.loginpnl h2 {font:normal 33px 'GeorgiaItalic'; display:block; color:#3d5b58; padding-bottom:10px }
+.loginpnl h3 {font:normal 14px 'GeorgiaItalic'; display:block; color:#3d5b58; padding-bottom:10px }
+.loginpnl h5 {font:normal 17px 'GeorgiaItalic'; display:block; color:#3d5b58; padding:30px 0 10px 0px }
+
+.loginpnl span {font:normal 14px 'GeorgiaRegular'!important; color:#3d5b58; }
+.loginpnl span small {color:#F00!important; font-size:14px }
+
+
+.loginpnl label {display:block; line-height:31px; width:164px; float:left; font-size:14px; color:#3d5b58; margin:10px 0; background:url(../images/inputs/label-bg.png) 100% 14px no-repeat scroll;}
+.loginpnl label small {color:#F00!important; font-size:14px }
+.loginpnl .textbox {display:block; width:245px; float:left; padding:0 5px 0 7px; font-size:18px; color:#3d5b58;  margin:10px 0 10px 10px; background:url(../images/inputs/txt_bg.png) 0 0 no-repeat scroll;}
+.loginpnl .textbox p {font-size:12px; color:#7f7f7f }
+.loginpnl input[type=text], .loginpnl input[type=password]  {border:0; background:fff; width:235px; margin:2px 0px; height:27px; line-height:27px}
+
+.loginpnl .textbox:focus {background:url(../images/inputs/focus.png) 0 0 no-repeat scroll}
+.error {background:url(../images/inputs/focus.png) 0 0 no-repeat scroll!important}
+
+
+/* for dropdown-list */
+.loginpnl .ddl, .loginpnl .textarea  {width:270px; display:block; float:left; margin:10px 0 10px 10px;  }
+.loginpnl .textarea textarea {width:247px; height:67px; background:url(../images/inputs/lerner_textarea_bg.png) 0 0 no-repeat scroll; resize:none; padding:5px; overflow:auto; margin:0px}
+.loginpnl a {color:#919897; text-decoration:underline; font-size:14px;}
+.loginpnl p {float:left; margin-left:15px; color:#919897; font-size:14px; line-height:22px }
+.ddl a {background:url(../images/icons/in.png) 0 0 no-repeat scroll; text-decoration:none; padding-left:25px; margin:10px 0 0 0; color:#3d5b58; line-height:31px }
+
+.loginpnl p small {color:#F00!important; font-size:14px }
+.loginpnl p strong {font-family: 'GeorgiaBold';!important }
+.loginpnl p.sntpass {color:#3d5b58!important; width:425px; }
+.loginpnl p.sntpass a {color:#00aae0; text-decoration:underline }
+.error {float:left; display:block; width:250px; }
+.error span {color:#F00; font-size:13px; }
+.loginpnl input[type=submit], .loginpnl input[type=button] {width:76px; height:38px; background:url(../images/inputs/btn_login.png) 0 0 no-repeat scroll; display:block; float:left;}
+.loginpnl .submit {width:87px!important; height:38px; background:url(../images/inputs/btn_submit.png) 0 0 no-repeat scroll!important; display:block; float:left;  }
+.loginpnl .btn_reg {width:92px!important; height:38px; background:url(../images/inputs/btn_register.png) 0 0 no-repeat scroll!important; display:block; float:left;  }
+
+.loginpnlR {width:440px; padding:15px 20px 160px 40px; background:url(../images/bg/right-login.png) 0 0 no-repeat scroll; display:block; min-height:450px }
+.loginpnlR h2 {font:normal 33px 'GeorgiaItalic'; display:block; color:#3d5b58; text-align:center }
+.loginpnlR h3 {color:#000; font-size:25px; text-align:center }
+.loginpnlR img {margin:30px auto 60px 30px }
+.loginpnlR p {font-size:14px; color:#3d5b58 }
+
+.size-25 {font-size:25px!important; padding-top:10px;}
+.size-21 {font-size:21px!important}
+.p-reg {color:#3d5b58!important }
+.calender {padding-left:10px; cursor:pointer }
+.loginpnl p a.reg-a {color:#3d5b58!important }
+
+/* Lerner Registration Page */
+.learner-profile input[type=submit] {width:92px!important; height:38px; background:url(../images/inputs/btn_submit_l.png) 0 0 no-repeat scroll!important; display:block; float:left; margin:5px 0 0 170px;}
+/*Project Page */
+.txt-project {background:url(../images/inputs/txt_project-bg.png) 0 0 no-repeat scroll;display:block; width:245px; float:left; padding:0 5px 0 7px; font-size:18px; color:#3d5b58;  margin:10px 0 10px 10px;}
+.txt-project input[type=text]{border:0; background:fff; width:115px!important; margin:2px 0px; height:27px; line-height:27px!important}
+.loginpnlR input[type=submit].btn_projectpriview {width:94px!important; height:38px; background:url(../images/inputs/btn_preview.png) 0 0 no-repeat scroll!important; display:block; float:left;  margin:15px 0 0 0; }
+.loginpnlR input[type=submit].btn_postproject {width:115px!important; height:38px; background:url(../images/inputs/btn_postprojsmall.png) 0 0 no-repeat scroll!important; display:block; float:left; margin:15px 0 0 35px;}
+
+/* posted Project Page */
+section article .postedproj {width:620px; margin-left:20px}
+section article .postedproj h2 {font:normal 33px 'GeorgiaItalic'; display:block; color:#3d5b58; padding-bottom:35px }
+section article .postedproj h3 {font:normal 19px 'GeorgiaItalic'; display:block; color:#3d5b58; padding-bottom:10px }
+section article .postedproj .proj-row {border-bottom:dotted 1px #c4cdcd; padding-bottom:10px; display:block; width:580px; margin-bottom:25px}
+section article .postedproj .proj-row p {font-size:14px; color:#203432; margin-bottom:10px;}
+section article .postedproj .proj-row ul {background:#e1e9ec; display:block; padding:5px 10px}
+section article .postedproj .proj-row ul li {float:left; background:url(../images/bg/project-li-bg.gif) 100% 4px no-repeat scroll; display:block}
+section article .postedproj .proj-row ul li span {font-size:11px; color:#033d37; padding:0 40px; display:block}
+section article .postedproj .proj-row ul li span a {font-size:11px; color:#033d37; padding:0 0 0 15px; }
+section article .postedproj .view-more-jobs {display:block; text-align:center;}
+ 
+section article .mail-box {margin:73px 20px 0 0; width:238px; padding:25px; border:solid 1px #e2eaed}
+section article .mail-box h3 {font:normal 19px 'GeorgiaItalic'; display:block; color:#3d5b58; padding-bottom:30px }
+section article .mail-box ul li {border-bottom:dotted 1px #3d5b58; display:block; padding-bottom:18px; margin-bottom:20px; font-size:14px;}
+section article .mail-box ul li a {color:#3d5b58;}
+section article .mail-box ul li a span {padding-left:10px}
+
+/* priview Project */
+section article .priview-project {margin-left:20px; display:block}
+section article .priview-project .bid-left {width:530px; margin-right:10px; float:left}
+section article .priview-project .bid-left .line span {width:240px!important; border-right:solid 1px #fff}
+
+section article .priview-project .bid-left .reqsf {width:auto!important}
+
+
+
+/* Bid right Section with Form */
+section article .priview-project .bid-right {width:370px; background:url(../images/bg/right-login.png) 0 0 no-repeat scroll; padding-left:25px; float:right}
+section article .priview-project .bid-right .bid-content {display:block; background:#f5f5f5; height:650px}
+section article .priview-project .bid-right .bid-content .bid-form {width:341px; margin:0 0 0 15px; display:block; padding:25px 0}
+section article .priview-project .bid-right .bid-content .bid-form h3 {font-size:24px; }
+section article .priview-project .bid-right .bid-content .bid-form .propsol-box {width:341px; margin:20px 0}
+section article .priview-project .bid-right .bid-content .bid-form .propsol-box .pbox-top {display:block; width:100%; background:url(../images/bg/pbox-top.png) 0 0 no-repeat scroll; padding-top:12px}
+section article .priview-project .bid-right .bid-content .bid-form .propsol-box .pbox-bot {display:block; width:100%; background:url(../images/bg/pbox-bot.png) 0 100% no-repeat scroll; padding-bottom:12px}
+section article .priview-project .bid-right .bid-content .bid-form .propsol-box .pbox-rpt {display:block; width:100%; background:url(../images/bg/pbox-rpt.png) 0 0 repeat-y scroll; height:300px}
+
+section article .priview-project .bid-right .bid-content .bid-form .form-bid {display:block;}
+section article .priview-project .bid-right .bid-content .bid-form .form-bid label {color:#3D5B58; display:block;  font:18px 'GeorgiaItalic'; float:left; width:104px; line-height:31px; margin-bottom:18px}
+section article .priview-project .bid-right .bid-content .bid-form .form-bid .bid-txtbox {display:block; float:left; width:131px; padding:0 5px; background:url(../images/inputs/txt_141x31.png) 0 0 no-repeat scroll; height:31px; margin-bottom:18px; }
+section article .priview-project .bid-right .bid-content .bid-form .form-bid .bid-txtbox input[type=text]{color:#3D5B58; font:18px 'GeorgiaItalic'; width:131px; height:27px; border:0; line-height:27px; margin:2px 0}
+section article .priview-project .bid-right .bid-content .bid-form .form-bid .bid-fake {width:235px; }
+section article .priview-project .bid-right .bid-content .bid-form .form-bid input[type=submit] {background:url(../images/inputs/btn_bidnow.png) 0 0 no-repeat scroll; width:94px; height:38px; display:block }
+/* Temporary, for bid edit form button */
+section article .bid-form .form-bid input[type=submit] {background:url(../images/inputs/btn_bidnow.png) 0 0 no-repeat scroll; width:94px; height:38px; display:block }
+
+
+section article .priview-project .bid-right .bid-content .bid-msg {padding-top:320px; }
+section article .priview-project .bid-right .bid-content .bid-msg h3 {text-align:center; display:block}
+
+section article .priview-project h2 {font:normal 33px 'GeorgiaItalic'; display:block; color:#3d5b58; padding-bottom:27px; letter-spacing:-1px}
+section article .priview-project h2 a {color:#bababa; background:url(../images/icons/watch-star.png) 5px 7px no-repeat scroll; padding-left:35px }
+section article .priview-project h3.priviewh3 {font:normal 24px 'GeorgiaItalic'!important; display:block; color:#bababa!important; padding:0px }
+section article .priview-project h3 {font:normal 19px 'GeorgiaItalic'; display:block; color:#3d5b58; padding-bottom:5px }
+section article .priview-project ul {display:block; padding:5px 0px 35px 0}
+section article .priview-project ul li {float:left; background:url(../images/bg/project-li-bg.gif) 100% 4px no-repeat scroll;}
+section article .priview-project ul li span {font-size:14px; color:#033d37; padding:0 45px}
+section article .priview-project ul li span a { color:#033d37; padding:0 0 0 15px}
+section article .priview-project p {font-size:14px; color:#3d5b58; margin-bottom:20px; line-height:18px}
+section article .priview-project .reqsf {width:450px; float:left}
+section article .priview-project .cat-row {padding:0 2px 1px 1px; border-bottom:solid 1px #e5e5e5; display:block; margin:10px 0}
+section article .priview-project .cat-row .line {display:block; margin-bottom:1px; background:#f5f5f5; padding:0 10px; height:30px;}
+section article .priview-project .cat-row .line span {font-size:14px; color:#000000; width:315px; float:left; line-height:20px; padding:5px 0}
+section article .priview-project .cat-row .line span a { color:#000000; text-decoration:underline}
+
+
+section article .priview-project .reqsf ul {padding:0px; }
+section article .priview-project .reqsf ul li {font-size:14px; color:#3d5b58; background:url(../images/bullets/bullet-0.png) 0 7px no-repeat scroll; padding-left:10px; float:none }
+
+section article .priview-project .post-edit {display:block; padding:30px 0 70px 0}
+section article .priview-project .post-edit a {margin-right:35px }
+.bdr-bottom {border-bottom:solid 1px #e5e5e5; padding-bottom:15px }
+.details-tabs {display:block; padding-top:35px }
+.tabed {position:relative; display:block;}
+.tabed ul {position:absolute; z-index:1; top:0px;}
+.tabed ul li {float:left; padding:0 55px; background:none!important}
+.tabed ul li a {color:#00aae0; font-size:18px; font-family:'GeorgiaItalic'; width:199px; text-align:center; display:block; padding:13px 0 0 0; height:31px}
+.tabed ul li a:hover, .tabed ul li.tab-act a, .tabed ul li.ui-state-active a {background:url(../images/bg/tab-s.png) 0 0 no-repeat scroll;}
+
+/* tabbing Section Statt Here */
+.tabs-container {background:url(../images/bg/tabs-container-bg.png) 0 0 repeat-x scroll; margin-top:46px; display:block; width:100%; padding-top:50px }
+.tabs-container .tabs-div {width:885px; margin:0px auto; }
+.tabs-container .tabs-div .prj-bid {display:block; margin-bottom:30px}
+.tabs-container .tabs-div .prj-img {float:left; margin-right:15px; width:38px; display:block }
+.tabs-container .tabs-div .prj-col {float:left; width:825px; position:relative }
+.tabs-container .tabs-div .prj-col h2 {font-size:18px; font-family:'GeorgiaItalic'; color:#508781; padding:0px }
+.tabs-container .tabs-div .prj-col h3 {font-size:14px; font-family:'GeorgiaItalic'; color:#3d5b58; padding:0px}
+.tabs-container .tabs-div .prj-col ul {border-top:solid 1px #e9e9e9;border-bottom:solid 1px #e9e9e9; padding:0 5px; background:#f5f5f5; margin:10px 0; display:block; width:100%}
+.tabs-container .tabs-div .prj-col ul li {float:left; padding:0px; background-position:0 10px}
+.tabs-container .tabs-div .prj-col ul li span {color:#000; font-size:12px; line-height:28px; padding:0 25px }
+.tabs-container .tabs-div .prj-col ul li span a {color:#000; font-size:12px;}
+.tabs-container .tabs-div .prj-col ul li span a.new {color:#000; font-size:12px; background:url(../images/icons/new.png) 100% 3px no-repeat scroll; padding-right:35px}
+
+.tabs-container .tabs-div .prj-col p { color:#3d5b58; font-size:12px; line-height:normal; margin:0px}
+
+
+.tabs-container .bid-thank .prj-col p { margin:10px 0 0 0}
+.tabs-container .bid-thank .prj-col .your-bid {position:absolute; top:0; right:0px;  }
+
+.tabs-container .tabs-div .prj-col ul.bidul {background:none}
+.tabs-container .tabs-div .prj-col ul.bidul li {height:28px; background:url(../images/bg/bid-li-bg.gif) 0 8px no-repeat}
+.tabs-container .tabs-div .prj-col ul.bidul h3 {padding:0 22px; line-height:28px; }
+.tabs-container .tabs-div .prj-col ul.bidul h3 span {padding-left:5px; font-size:14px; font-family:'GeorgiaItalic'; color:#3d5b58; }
+.tabs-container .tabs-div .prj-col ul.bidul li input[type=button] {margin:3px 0 0 10px; float:left; display:block }
+.tabs-container .tabs-div .prj-col ul.bidul li input[type=button].btn_sndmsg {width:112px; height:22px; background:url(../images/inputs/btn_sendMsg.jpg) 0 0 no-repeat scroll; }
+.tabs-container .tabs-div .prj-col ul.bidul li input[type=button].btn_dbid {width:91px; height:22px; background:url(../images/inputs/btn_declinebid.jpg) 0 0 no-repeat scroll; }
+.tabs-container .tabs-div .prj-col ul.bidul li input[type=button].btn_award {width:108px; height:22px; background:url(../images/inputs/btn_awardproject.jpg) 0 0 no-repeat scroll; }
+
+
+.tabs-container .tabs-div .post-msg {width:729px; display:block; margin:0 auto; padding-bottom:15px;}
+.tabs-container .tabs-div .post-msg .post-msg-top {display:block; background:url(../images/bg/post-msg-top.png) 0 0 no-repeat scroll; padding-top:10px}
+.tabs-container .tabs-div .post-msg .post-msg-bot {display:block; background:url(../images/bg/post-msg-bot.png) 0 100% no-repeat scroll; padding-bottom:10px}
+.tabs-container .tabs-div .post-msg .post-msg-rpt {display:block; background:url(../images/bg/post-msg-rpt.png) 0 0 repeat-y scroll;padding:0 12px; width:705px}
+.tabs-container .tabs-div .post-msg .post-msg-rpt textarea {width:705px; resize:vertical; border:0; font-size:14px; color:#3d5b58;}
+
+.tabs-container .tabs-div .post-msg .msg-form {display:block; margin:10px 0 0 0}
+.tabs-container .tabs-div .post-msg .msg-form label {color:#3D5B58; font:17px 'GeorgiaItalic'; float:left;  line-height:38px; padding-right:10px; display:block}
+.tabs-container .tabs-div .post-msg .msg-form .msg-post-fake {float:left; display:block; position:relative; width:350px }
+.tabs-container .tabs-div .post-msg .msg-form input[type=submit] {width:69px; height:38px; display:block; float:right; background:url(../images/inputs/btn_post.png) 0 0 no-repeat scroll;}
+.tabs-container .tabs-div .msg-container {width:830px; margin:0 auto; display:block; border-top:solid 1px #e5e5e5; padding:20px 0;}
+.tabs-container .tabs-div .msg-container .msg-row {display:block; padding-bottom:15px; border-bottom:solid 1px #e5e5e5; margin-bottom:20px}
+.tabs-container .tabs-div .msg-container .msg-row .msg-sleft {width:70px; display:block; float:left; margin-right:30px; text-align:right}
+.tabs-container .tabs-div .msg-container .msg-row .msg-sleft span {color:#8f8f8f; font:11px 'GeorgiaItalic'; display:block;}
+.tabs-container .tabs-div .msg-container .msg-row .msg-sleft h5 {color:#3d5b58; font:14px 'GeorgiaItalic'; display:block; padding:4px 0;}
+
+
+.tabs-container .tabs-div .msg-container .msg-row .msg-sright {width:730px; display:block; float:left; }
+.tabs-container .tabs-div .msg-container .msg-row .msg-sright p {font-size:12px; color:#3d5b58; margin-bottom:0px}
+.tabs-container .tabs-div .msg-container .msg-row .msg-sright p.msg-color {color:#686868}
+
+
+
+
+/* priview profile */
+.view-profile {display:block; position:relative}
+.view-profile p {font-size:14px; color:#203432!important; margin-bottom:25px; line-height:20px; margin:0 0 15px 0!important; display:block; float:none!important}
+.view-profile h2 {font:normal 33px 'GeorgiaItalic'; display:block; color:#3D5B58; padding:0px!important  }
+.view-profile h2 small{font-size:16px}
+.view-profile h2 span {font:normal 20px 'GeorgiaItalic'!important;  color:#474747;  }
+.view-profile h3 {font:normal 19px 'GeorgiaBoldItalic'; display:block; color:#3D5B58; padding-bottom:5px }
+.view-profile ul li {font-size:14px; color:#203432; background:url(../images/bullets/bullet-0.png) 0 7px no-repeat scroll; padding-left:10px; float:none }
+
+h2.proh2 {font-size:27px!important}
+h3.proh3 {font-size:21px!important; padding-bottom:25px}
+.view-profile .profile-image {width:100px; margin-right:20px }
+.view-profile .profile-image img {padding-top:7px }
+.view-profile .profile-text { display:block; width:320px; position:relative; }
+
+
+/* tutor profile */
+.tutor-pro input[type=submit] {background:url(../images/inputs/btn_submit.png) 0 0 no-repeat scroll!important; width:87px; margin:10px 0 0 172px }
+.get-certified {position:absolute; bottom:20px; right:4px; width:112px; height:38px; background:url(../images/inputs/btn_getcertified.png) 0 0 no-repeat scroll;text-decoration:none!important  }
+.certified {position:absolute; bottom:20px; right:4px; width:96px; height:38px; background:url(../images/inputs/btn_certified.png) 0 0 no-repeat scroll;text-decoration:none!important  }
+
+
+/* popup */
+
+#simplemodal-overlay {background:url(../images/bg/model-overlay.png) 0 0 repeat scroll;cursor:wait;}
+#simple-model {border:3px solid #08887c; background:#fff; width:435px; padding:50px 25px}
+
+
+#simple-model {display:none }
+
+#simple-model p {font:normal 15px 'GeorgiaBoldItalic'; display:block; color:#0a4c46; line-height:21px; }
+#simple-model .simplemodal-close {margin:30px 0 0 180px; }
+
+
+/* inbox */
+article.inbox { }
+article.inbox h2 {font:normal 33px 'GeorgiaItalic'; display:block; color:#3d5b58; padding-bottom:27px }
+.inbox .msg-left {width:138px; margin-right:30px}
+
+.inbox .msg-left ul li {border-bottom:dotted 1px #3d5b58; display:block; padding-bottom:18px; margin-bottom:20px; font-size:14px;}
+.inbox .msg-left ul li a {color:#3d5b58;}
+.inbox .msg-left ul li.first a  {font-family: 'GeorgiaBold'; }
+.inbox .msg-left ul li a span {padding-left:10px}
+.inbox .msg-mid {width:518px; padding:0 30px; background:url(../images/bg/inbox-center.png) 0 0 no-repeat scroll;}
+.inbox .msg-mid .rows-m {display:block; border-bottom:dotted 1px #c4cdcd; margin-bottom:20px}
+.inbox .msg-mid .rows-m span {font-size:11px; color:#76807f}
+.inbox .msg-mid .rows-m span small {font-size:11px; color:#76807f}
+.inbox .msg-mid .rows-m p {font-size:14px; color:#203432; line-height:19px; display:block}
+.inbox .msg-mid .more-message {margin:105px 0 0 0 }
+
+.inbox .msg-right {width:190px; margin-left:30px;}
+.inbox .msg-right p {font-family: 'GeorgiaBold';  font-size:14px; color:#3d5b58;  }
+.inbox .msg-right span {  font-size:14px; color:#436965; margin-top:60px; display:block  }
+.inbox .msg-right ul li {border-bottom:dotted 1px #3d5b58; display:block; smargin-bottom:20px; font-size:14px;}
+.inbox .msg-right ul li a {color:#3d5b58;}
+
+
+/* learner watch list */
+.learner-watch {width:775px; } 
+
+.learner-watch-bt {border-bottom:dotted 1px #c4cdcd; padding-bottom:20px; margin-bottom:15px }
+.learner-watch-bt a {float:left; color:#a1afae; font-size:14px; font-family:'GeorgiaItalic'; text-decoration:underline; padding-top:15px; }
+.learner-watch-bt input[type=button] {float:right; width:77px; height:38px; display:block; background:url(../images/inputs/btn_delete.png) 0 0 no-repeat scroll }
+
+.learner-watch .tabs-div {margin:0px auto; }
+.learner-watch .tabs-div .prj-bid {display:block; margin-bottom:30px}
+.learner-watch .tabs-div .prj-chkbox {display:block; width:30px; float:left}
+.learner-watch .tabs-div .prj-img {float:left; margin-right:15px; width:38px; display:block }
+.learner-watch .tabs-div .prj-col {float:left; width:630px; }
+.learner-watch .tabs-div .prj-col h2 {font-size:18px; font-family:'GeorgiaItalic'; color:#508781; padding:0px }
+.learner-watch .tabs-div .prj-col h3 {font-size:14px; font-family:'GeorgiaItalic'; color:#3d5b58; padding:0px}
+.tuter-watch {width:665px }
+
+.tuter-watch .prj-col h3 {font-size:11px!important; font-family:'GeorgiaRegular'!important; color:#363d3c; padding:5px 0 0 0}
+.tuter-watch .prj-col h3 a {text-decoration:underline; color:#363d3c;}
+.tuter-watch .tabs-div .prj-bid ul {margin-left:0px!important; background:#f6f8f9!important; border:none!important }
+.tuter-watch .prj-col {padding-bottom:5px; border-bottom:dotted 1px #c4cdcd; }
+.tuter-watch .prj-col li span {padding:0 38px}
+.learner-watch .tabs-div .prj-col ul, .learner-watch .tabs-div .prj-bid ul {border-top:solid 1px #e9e9e9;border-bottom:solid 1px #e9e9e9; padding:0 5px; background:#f5f5f5; margin:10px 0 10px 30px; display:block;}
+.learner-watch .tabs-div .prj-col ul li, .learner-watch .tabs-div .prj-bid li {float:left; padding:0px; background-position:0 10px}
+.learner-watch .tabs-div .prj-col ul li span, .learner-watch .tabs-div .prj-bid li span  {color:#033d37; font-size:12px; line-height:28px; padding:0 25px }
+.learner-watch .tabs-div .prj-col ul li span a, .learner-watch .tabs-div .prj-bid li span a {color:#033d37; font-size:12px;}
+.learner-watch .tabs-div .prj-col ul li span a.new {color:#000; font-size:12px; background:url(../images/icons/new.png) 100% 3px no-repeat scroll; padding-right:35px}
+.learner-watch .tabs-div .prj-col p { color:#3d5b58; font-size:12px; line-height:normal; margin:0px; padding:10px 0 0 0}
+.learner-watch .tabs-div .prj-col p a {color:#3d5b58; }
+.learner-watch .bid-thank .prj-col p { margin:10px 0 0 0}
+.learner-watch .bid-thank .prj-col .your-bid {position:absolute; top:0; right:0px;  }
+.learner-watch .tabs-div .prj-col ul.bidul {background:none}
+.learner-watch .tabs-div .prj-col ul.bidul li {height:28px; background:url(../images/bg/bid-li-bg.gif) 0 8px no-repeat}
+.learner-watch .tabs-div .prj-col ul.bidul h3 {padding:0 22px; line-height:28px; }
+.learner-watch .tabs-div .prj-col ul.bidul h3 span {padding-left:5px; font-size:14px; font-family:'GeorgiaItalic'; color:#3d5b58; }
+.learner-watch .tabs-div .prj-col ul.bidul li input[type=button] {margin:3px 0 0 10px; float:left; display:block }
+.learner-watch .tabs-div .prj-col ul.bidul li input[type=button].btn_sndmsg {width:112px; height:22px; background:url(../images/inputs/btn_sendMsg.jpg) 0 0 no-repeat scroll; }
+.learner-watch .tabs-div .prj-col ul.bidul li input[type=button].btn_dbid {width:91px; height:22px; background:url(../images/inputs/btn_declinebid.jpg) 0 0 no-repeat scroll; }
+.learner-watch .tabs-div .prj-col ul.bidul li input[type=button].btn_award {width:108px; height:22px; background:url(../images/inputs/btn_awardproject.jpg) 0 0 no-repeat scroll; }
+ 
+ 
+ /* tutor project search */
+.search-tutor {width:970px; }
+
+
+
+
+.search-tutor .tabs-div {width:665px; padding:0 0 20px 20px; border-left:solid 1px #d8dede; margin-top:10px  }
+.search-tutor .tabs-div .prj-bid {margin-bottom:15px }
+
+.search-res {border-bottom:solid 1px #d8dede; padding:10px 0 13px 0; display:block; margin-bottom:15px}
+.search-res div {color:#508781; font-size:14px}
+.search-res div span {color:#3d5b58 }
+.search-tutor .tabs-div .prj-col h2 {font-size:18px; font-family:'GeorgiaRegular'; color:#508781; padding:0px; float:left; background:url(../images/icons/sm-star.png) 100% 0 no-repeat scroll; padding-right:25px;  }
+.search-tutor .tabs-div .prj-col h3 {font-size:14px; font-family:'GeorgiaItalic'; color:#3d5b58; padding:0px 0 10px 0}
+.search-tutor .tabs-div .prj-col p {margin-bottom:10px }
+.search-tutor .tabs-div .prj-col p a {color:#3d5b58;}
+.search-tutor .tabs-div .prj-col ul {padding:5px 0 5px 0; display:block; height:20px }
+.search-tutor .tabs-div .foot-nav {display:block; padding:10px 0; text-align:right;}
+.search-tutor .tabs-div .foot-nav ul {padding:10px 0; float:right}
+.search-tutor .tabs-div .foot-nav ul li {float:left; display:block; padding:0; margin:0 3px; background:none}
+.search-tutor .tabs-div .foot-nav ul li a {background:#d8dfe2; font-size:12px; color:#000; padding:0px 6px; display:block}
+.search-tutor .tabs-div .foot-nav ul li.fn-active a {background:#3d5b58; font-size:12px; color:#fff; padding:0px 6px; display:block}
+
+
+.priview-project .search-box {margin:0px 0 60px 256px; display:block; height:39px; float:left; width:500px }
+.priview-project .search-box img {float:left; cursor:pointer; width:92px}
+.priview-project .search-box input[type=text] {width:360px; height:38px; background:url(../images/inputs/search-text-bg.png) 0 0 repeat-x scroll; display:block; float:left; line-height:36px; font-size:20px; }
+.priview-project .search-box input[type=submit], .priview-project .search-box input[type=button] {width:37px; height:38px; background:url(../images/inputs/search-home-btn.png) 0 0 no-repeat scroll; display:block; float:left; }
+.priview-project .text-img {display:block; text-align:center }
+
+.priview-project .filter-box {width:240px; margin-right:20px; }
+.priview-project .filter-box h3 {font-size:29px; color:#3d5b58; font-family:'GeorgiaItalic'; padding-bottom:25px;}
+.priview-project .filter-box h4 {font-size:20px; color:#495756; font-family:'GeorgiaItalic'; padding-bottom:15px;}
+.priview-project .filter-box ul {padding:5px 0 0 0 }
+.priview-project .filter-box ul li {margin-bottom:10px; display:block; float:none; background:none}
+.priview-project .filter-box ul li .check-box {width:30px; float:left}
+.priview-project .filter-box ul li p { float:left; font-size:14px; display:block; line-height:22px; color:#27393c; margin-bottom:0px}
+.priview-project .filter-box input[type=submit] {width:87px; height:38px; display:block; background:url(../images/inputs/btn_submit.png) 0 0 no-repeat scroll }
+.priview-project .filter-box .br {border-bottom:solid 1px #d8dede; padding-bottom:18px; margin-bottom:20px; display:block; }
+
+.search-learner .prj-col {width:600px!important; border:none }
+.search-learner .tabs-div .prj-bid h2 {font-family:'GeorgiaItalic'; }
+.search-learner .tabs-div .prj-bid ul {margin:10px 0; } 
+.search-learner .tabs-div .prj-bid ul span {color:#000 }
+
+.paynow input[type=submit]{width:92px; height:38px; display:block; margin:20px 0 0 0; background:url(../images/inputs/btn_paynow.png) 0 0 no-repeat scroll!important }
+.loginpnlR h5 {color: #3D5B58;
+    display: block;
+    font: 17px 'GeorgiaItalic';
+    padding: 82px 0 15px 0;}
+.loginpnlR table {width:100%; border-collapse:collapse}
+.loginpnlR table th {background:#e1e9ec; color:#3D5B58; font: 14px 'GeorgiaItalic'; padding:8px 7px;  }
+.loginpnlR table td {color:#3D5B58; font: 14px 'GeorgiaItalic'; padding:8px 7px ; border-bottom:dotted 1px #c4cdcd;}
+.loginpnlR input[type=submit].btn_payprocee {width:171px; height:38px; display:block; background:url(../images/inputs/btn_proceed_pay.png) 0 0 no-repeat scroll!important; margin:10px 0 0 172px; }

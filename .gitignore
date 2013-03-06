@@ -1,0 +1,10 @@
+local_settings.py
+.*.swp
+*.pyc
+teachity/media/*
+teachitydb
+venv
+rapidssl_bundle.pem
+server.crt
+server.key
+server.orig.crt

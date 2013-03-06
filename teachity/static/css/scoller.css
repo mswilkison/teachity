@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document for all scrolling conent in Webstie*/
+
+/* for Home Page */
+
+#scrollHome {overflow:hidden; position: relative }
+#scrollHome .viewport {height:285px; overflow: hidden; position: relative; }
+#scrollHome .overview { list-style: none; position: absolute; left: 0; top: 0; padding: 0; margin: 0; }
+#scrollHome .scrollbar{ background:#e9ebeb ;  position: relative;  float: right; width: 5px; }
+#scrollHome .thumb {  background:#00bdfb;  height: 50px; width: 10px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0px; }
+#scrollHome .disable { display: none; }  
+
+

@@ -1,0 +1,36 @@
+{%extends "loggedin.html" %}
+{% block title %}Teachity: View Profile{% endblock %}
+{% block java %}
+$("header").addClass("bdrb-none");
+$(".ul-login").hide();
+{% endblock %}
+{% block content %}
+<section>
+<article>
+<div class="loginpnl view-profile fl">
+<div class="profile-image fl">
+<img src="{{ STATIC_URL }}images/accessories/profile-image.jpg" width="100" />
+</div>
+<div class="profile-text fl">
+<h2>Tim Cooper <small>(Learner)</small></h2>
+<p>South Bend, IN, USA </p>
+<p>Email : tim@cooper.com </p>
+</div>
+
+<div class="clear"></div>
+<h3>About Tim</h3>
+<p>Etiam hendrerit dignissim ipsum, eget sodales magna consectetur at. Morbi egestas, risus at egestas dictum, arcu leo fermentum dolor, eu facilisis sem velit quis metus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+
+<p>Vestibulum hendrerit semper aliquet. In velit diam, hendrerit vel dictum eget, elementum sit amet libero. Nulla facilisi. Nunc facilisis, massa nec egestas hendrerit, nisl lectus rhoncus elit, in semper elit massa eget odio. </p>
+
+<p>Ut et nisi nisl. Sed consequat arcu eu lacus iaculis luctus. Cras malesuada semper urna, et tempus quam pulvinar vitae.</p>
+</div>
+<div class="loginpnlR fr">
+
+
+</div>
+ 
+ <div class="clear"></div>
+ </article>
+ </section>
+{% endblock %}

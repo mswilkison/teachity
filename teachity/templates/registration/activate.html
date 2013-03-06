@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block title %}Account Activation Unsuccessful{% endblock title %}
+
+{% block content %}
+    <h1>Account Activation Unsuccessful.</h1>
+    <p>Sorry, it didn't work. Either your activation link was incorrect, 
+    the activation key for your account has expired, or your account has already
+    been activated.</p>
+    <p>You can see if your account is active by trying to <a href="{% url auth_login %}">Log in</a>.
+{% endblock %}

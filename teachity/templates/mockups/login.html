@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Teachity: Login{% endblock %}
+{% block java %}	$(".ul-logout").hide();{% endblock %}
+{% block content %}
+<section>
+<article>
+ <div class="loginpnl fl">
+ <h2>Login</h2>
+<form id="frm_login" name="frm_login">
+ 
+ <label> Email ID</label><div class="textbox"><input type="text"  id="txt_email"   /> </div>
+ <div class="clear"></div>
+ <label>Password</label><div class="textbox"><input type="password"  id="txt_password"   /></div>
+ <div class="clear"></div>
+ <a href="../forget-password"class="mgl-175 fl">Forgot Your Password?</a><div class="clear"></div><br />
+ <p class="mgl-175 fl"><input type="checkbox" id="" checked="true" class="styled">Remember Me</p> 
+  <div class="clear"></div> <br/ >
+  <label class="bg-none">&nbsp;</label> <input type="submit" id="" />
+	</form>
+ </div>
+ <div class="loginpnlR fr">
+<h2>Welcome to Monstrator</h2>
+<h3>We make online learning memorable</h3>
+<img src="{{ STATIC_URL }}images/accessories/login-image.jpg" width="380" height="142" alt=""/>
+<p>
+Morbi turpis odio, luctus sit amet cursus et, adipiscing eu turpis. Proin laoreet, elit eu tincidunt lacinia, lacus enim malesuada dui, Morbi turp is odio, luctus sit amet cursus et, adipiscing eu turpis. Proin laoreet, eli t eu tincidunt lacinia, lacus enim malesuada dui.
+</p>
+
+</div>
+ 
+ <div class="clear"></div>
+ </article>
+ </section>
+
+{% endblock %}

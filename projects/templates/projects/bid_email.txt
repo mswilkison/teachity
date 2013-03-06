@@ -1,0 +1,4 @@
+{% load humanize %}
+You received a bid on your project titled "{{ title }}"! Click the link below or copy and paste it into your web browser's address bar to check it out:
+
+https://teachity.com/projects/view/{{ project_id }}

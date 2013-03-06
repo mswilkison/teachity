@@ -1,0 +1,42 @@
+{% extends "django_messages/base.html" %}
+{% load i18n %}
+{% block content %}
+<div class="span9">
+<h1>{% trans "Compose Message"%}</h1>
+<form class="form-horizontal" action="" method="post">
+    {% csrf_token %}
+    <div class="control-group">
+        <label class="control-label">
+            {{ form.recipient.label_tag }}
+        </label>
+        <div class="controls">
+            {{ form.recipient }}
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <label class="control-label">
+            {{ form.subject.label_tag }}
+        </label>
+        <div class="controls">
+            {{ form.subject }}
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <label class="control-label">
+            {{ form.body.label_tag }}
+        </label>
+        <div class="controls">
+            {{ form.body }}
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <input class="btn" type="submit" value="{% trans "Send" %}"/>
+        </div>
+    </div>
+</form>
+</div>
+</div>
+{% endblock %}

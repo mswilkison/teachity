@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Teachity: Contact Us{% endblock %}
+
+{% block content %}
+<h2>Contact Us</h2>
+{% if form.errors %}
+    <p style="color: red;">
+        Please correct the error{{ form.errors|pluralize }} below.
+    </p>
+{% endif %}
+<form class="form-horizontal" action="" method="post">
+    {% csrf_token %}
+    <div class="control-group">
+        <label class="control-label" for="id_subject">Subect:</label>
+        <div class="controls">
+            {% if form.subject.errors %}
+            <span class="error"{{ form.subject.errors|join:", " }}</span>
+            {% endif %}
+            {{ form.subject }}
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="id_email">Your email:</label>
+        <div class="controls">
+            {% if form.email.errors %}
+            <span class="error"{{ form.email.errors|join:", " }}</span>
+            {% endif %}
+            {{ form.email }}
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="id_message">Message:</label>
+        <div class="controls">
+            {% if form.message.errors %}
+            <span class="error"{{ form.message.errors|join:", " }}</span>
+            {% endif %}
+            {{ form.message }}
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <input type="submit" value="Submit">
+        </div>
+    </div>
+</form>
+{% endblock %}

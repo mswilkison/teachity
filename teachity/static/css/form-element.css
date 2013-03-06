@@ -1,0 +1,153 @@
+.checkbox, .radio {
+	width: 19px!important;
+	height: 19px!important;
+	padding:0 0 0 10px;
+	background:url(../images/inputs/check-box.png) 0 0 no-repeat;
+	display: block;
+	clear: left;
+	float: left;
+}
+
+.radio {
+	width: 18px;
+	height: 17px;
+	padding:0 0 0 10px;
+	background: url(../images/bg/radio-register.png) 0 0 no-repeat;
+	display: block;
+	clear: left;
+	float: left;
+}
+
+.register-check {
+	width: 25px;
+	height: 25px;
+	padding:0 0 0 10px;
+	background: url(../images/bg/checkbox-register.png) 0 0 no-repeat!important;
+	display: block;
+	clear: left;
+	float: left;
+}
+
+.register-check.styled {position: relative; width: 187px; opacity: 0; filter: alpha(opacity=0); z-index: 5; color:#979797; margin-left:3px; margin-top:13px; }
+
+
+.radio {
+	background: url(../images/bg/radio-register.png) 0 0 no-repeat;
+}
+
+.disabled {opacity: 0.5; filter: alpha(opacity=50); }
+
+
+
+
+
+
+
+
+
+
+/* css for browse button */
+
+.fileinputs {
+    height: 34px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+	 
+}
+.fakefile {
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 999;
+}
+.fakefile img {
+  	float: left;
+    height: 38px;
+    position: relative;
+    z-index: 999999;
+	width:98px;
+	cursor:pointer;
+	padding:0px;
+	margin:0px!important
+}
+.fileinputs .file {
+    cursor: pointer;
+    height: 34px;
+    margin: 2px 0 0 0px;
+    opacity: 0;
+    padding: 0;
+    position: relative;
+    text-align: left;
+    width:auto;
+    z-index: 9999;
+	-moz-opacity: 0;
+      filter: alpha(opacity: 0);
+	  float:right;
+}
+.fileinputs .hidden {
+    float: right;
+	
+}
+
+/* 16.12.2011 */
+
+.fakefile input {
+    background: url(../images/inputs/browse-text.png) 0 0 no-repeat scroll!important;
+    float: left;
+    height: 31px!important;
+    margin: 4px 0 0 0;
+    width: 160px!important;
+	padding:0 0 0 10px;
+	color:#353b48;
+} 
+
+
+.bid-fake .fakefile input {
+    background: url(../images/inputs/txt_141x31.png) 0 0 no-repeat scroll!important;
+    float: left;
+    height: 31px;
+    margin: 4px 0 0 0;
+    width: 131px!important;
+	padding:0 0 0 10px;
+	color:#353b48;
+}
+
+.bid-fake .fakefile img {width:92px } 
+
+
+
+
+.select {
+	position: absolute;
+	width: 257px; /* With the padding included, the width is 190 pixels: the actual width of the image. */
+	height: 31px;
+	padding:8px 0 0 14px;
+	color:#979797;
+	font-size:12px;
+	overflow: hidden;
+} 
+input.styled {display: none; } 
+select.styled {position: relative; width: 257px; opacity: 0; filter: alpha(opacity=0); z-index: 5;  padding-left:0px!important;
+font-size:14px; color:#353b48; height:31px;} 
+
+
+
+
+/*dropdowns */
+.ddl {display:block}
+.ddl span {background:url(../images/inputs/ddl_lerner_reg.png) 0 0 no-repeat scroll; width:247px; height:31px; display:block; line-height:29px; padding-left:10px; } 
+.ddl span.styled {width:247px  }
+.ddl select.styled {width:257px}
+
+
+
+
+.ddl-project span {background:url(../images/inputs/ddl_project.png) 0 0 no-repeat scroll; width:122px; height:31px; display:block; line-height:29px; padding-left:5px; } 
+.ddl-project span.styled {width:122px  }
+.ddl-project select.styled {width:127px}
+
+.ddl-month span {background:url(../images/inputs/ddl_87x31.png) 0 0 no-repeat scroll; width:82px; height:31px; display:block; line-height:29px; padding-left:5px; } 
+.ddl-month span.styled {width:82px  }
+.ddl-month select.styled {width:87px}

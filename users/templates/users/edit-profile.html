@@ -1,0 +1,110 @@
+{%extends "loggedin.html" %}
+{% block title %}Fill out your profile{% endblock %}
+
+{% block content %}
+    <div class="row-fluid">        
+        <div class="span5">
+            <h2>Create your Profile</h2>
+            
+            <form class="form-horizontal" action="" enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                <div class="control-group">
+                    <label class="control-label">
+                        {{ user_form.first_name.label_tag }}
+                    </label>
+                    <div class="controls">
+                        {{ user_form.first_name }}
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label class="control-label">
+                        {{ user_form.last_name.label_tag }}
+                    </label>
+                    <div class="controls">
+                        {{ user_form.last_name }}
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label class="control-label">
+                        {{ user_form.email.label_tag }}
+                    </label>
+                    <div class="controls">
+                        {{ user_form.email }}
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label class="control-label">
+                        {{ profile_form.country.label_tag }}
+                    </label>
+                    <div class="controls">
+                        {{ profile_form.country }}
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label class="control-label">
+                        {{ profile_form.state.label_tag }}
+                    </label>
+                    <div class="controls">
+                        {{ profile_form.state }}
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label class="control-label">
+                        {{ profile_form.city.label_tag }}
+                    </label>
+                    <div class="controls">
+                        {{ profile_form.city }}
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label class="control-label">
+                        {{ profile_form.bio.label_tag }}
+                    </label>
+                    <div class="controls">
+                        {{ profile_form.bio }}
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label class="control-label">
+                        {{ profile_form.picture.label_tag }}
+                    </label>
+                    <div class="controls">
+                        {{ profile_form.picture }}
+                    </div>
+                </div>
+                                
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="submit" class="btn btn-info">
+                    </div>
+                </div>
+             </form>
+        </div>
+        
+        {% if user_type == 'student' %}
+        <div class="span5">
+            <h2 class="size-25">Make sure your profile is complete</h2>
+            <h3 class="size-21">so that tutors can better serve you</h3>
+            <br />
+            <img src="{{ STATIC_URL }}images/accessories/lerner-reg.png"  alt=""/>
+        </div>
+        {% else %}
+        <div class="span5">
+            <h2 class="proh2">Make sure your profile is complete</h2>
+            <h3 class="proh3">so that learners can make a good decision</h3>
+            <br />
+            <img src="{{STATIC_URL }}images/accessories/tutor-profile.jpg" width="375" />
+        </div>
+        {% endif %}
+         
+    </div>
+
+
+{% endblock content %}

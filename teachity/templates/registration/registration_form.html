@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Create An Account{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="row-fluid">
+        <div class="span5">
+            <h1>Create an Account <a href="http://www.instantssl.com">
+                <img src="{{ STATIC_URL }}images/accessories/comodo_secure_76x26_white.png" alt="SSL" width="76" height="26" style="border: 0px;">                    </a>
+            </h1>
+            {% if form.errors %}
+            <p class="errors">Please correct the errors below: {{ form.non_field_errors }}</p>
+            {% endif %}
+
+
+            <form id="frm_reg" method="post" action="" class="form-horizontal">
+                {% csrf_token %}
+                <div class="control-group">
+                    <label class="control-label" for="id_username">Username:</label>
+                    <div class="controls">
+                        {% if form.username.errors %}
+                            <p class="errors">{{ form.username.errors.as_text }}</p>
+                        {% endif %}
+                        {{ form.username }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="id_email">Email Address:</label>
+                    <div class="controls">
+                        {% if form.email.errors %}
+                            <p class="errors">{{ form.email.errors.as_text }}</p>
+                        {% endif %}
+                        {{ form.email }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="id_password1">Password:</label>
+                    <div class="controls">
+                        {% if form.password1.errors %}
+                            <p class="errors">{{ form.password1.errors.as_text }}</p>
+                        {% endif %}
+                        {{ form.password1 }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="id_password2">Confirm Password:</label>
+                    <div class="controls">
+                        {% if form.password2.errors %}
+                            <p class="errors">{{ form.password2.errors.as_text }}</p>
+                        {% endif %}
+                        {{ form.password2 }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">I am a:</label>
+                    <div class="controls">
+                        {% if form.user_group.errors %}
+                            <p class="errors">{{ form.user_group.errors.as_text }}</p>
+                        {% endif %}
+                        {{ form.user_group }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="submit" class="btn-info">
+                    </div>
+                </div>
+            </form>
+            
+            
+        </div>
+
+        <div class="span5">
+            <h2>Become a member of Teachity</h2>
+            <h3>and connect to tutors and learners worldwide</h3> <br />
+            <img src="{{ STATIC_URL }}images/accessories/register-image.jpg"  alt=""/>
+        </div>
+{% endblock content %}

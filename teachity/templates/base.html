@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{%block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="{{  STATIC_URL }}css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    {% block imports %}{% endblock %}
+    
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="{% url index %}">Teachity</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+                
+                    {% if request.user.get_profile.get_user_type = 'Tutor' %}
+                    <li><a href="{% url users_dashboard %}">
+                    Manage Bids
+                    </a></li>
+                    {% endif %}
+                    {% if request.user.get_profile.get_user_type = 'Student' %}
+                    <li><a href="{% url users_dashboard %}">
+                    Manage Projects
+                    </a></li>
+                    {% endif %}
+              {% if request.user.get_profile.get_user_type = 'Student' %}
+                <li><a href="{% url projects_create %}">Submit a Project</a></li>
+              {% endif %}
+                <li><a href="{% url projects_browse %}">Browse Projects</a></li>
+              {% if request.user.is_authenticated %}
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url users_edit_profile %}">Edit Profile</a></li>
+                  <li><a href="{% url users_view_profile %}">View Profile</a></li>
+                </ul>
+              </li>
+              <li><a href="{% url messages_inbox %}">View Messages</a></li>
+              {% endif %}
+            </ul>
+            {% if not request.user.is_authenticated %}
+                <form class="navbar-form pull-right" method="post" action="{% url auth_login %}">
+                  {% csrf_token %}
+                  <input class="span2" type="text" placeholder="Username/Email" name="username">
+                  <input class="span2" type="password" placeholder="Password" name="password">
+                  <button type="submit" class="btn">Sign in</button>
+                </form>
+            {% else %}
+                <div class="nav-collapse collapse pull-right">
+                <ul class="nav">
+                  <li><a href="{% url auth_logout %}">Log out</a></li>
+                </ul>
+                </div>
+            {% endif %}
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    {% block main_navigation %}{% endblock %}
+
+    {% block intro %}{% endblock %}
+
+    <div class="container">
+    <br>
+    {% if request.user.get_profile.get_user_type = 'Tutor' and not request.user.stripeaccesskey_set.exists %}
+      <center>
+        <a href="{% url stripe_authorize %}"><h4 class="errors">Link to Stripe so that students can pay you directly!  <img src="{{  STATIC_URL }}images/icons/blue.png" width="190" height="33" data-hires="true" /></h4></a>
+      </center>
+    {% endif %}
+    
+    {% block sidebar %}
+    {% endblock %}
+
+    {% block content %}{% endblock %}
+    </div>
+
+      <div class="container">
+      <hr>
+
+    <!-- Footer
+    ================================================== -->
+
+    <footer class="footer">
+      <div class="container center">
+        <center>
+        <ul class="footer-links">
+            <li><a href="{% url about %}">About</a></li><li>|</li>
+            <li><a href="{% url privacy %}">Privacy Policy</a></li><li>|</li>
+            <li><a href="{% url faq %}">FAQ</a></li><li>|</li>
+            <!--<li><a href="#">Terms</a></li><li>|</li>
+            <li><a href="#">Help</a></li><li>|</li>
+            <li><a href="#">Privacy</a> </li><li>|</li>
+            <li><a href="SlickmapCSS/site_map.html">Sitemap</a></li><li>|</li>-->
+            <li><a href="{% url contact_form %}">Contact Us</a></li><li>|</li>
+            <!--<li><a href="{% url registration_register %}">Register</a></li><li>|</li>-->
+            <li><a href="{% url auth_password_change %}">Change password</a></li>  
+        </ul>
+        <p>&copy; Teachity 2012. All Rights Reserved. Seriously, why are you still reading this? Go learn something!</p>
+        </center>
+      </div>     
+    </footer>
+    </div>
+
+    
+    <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    {# <script src="{{  STATIC_URL }}js/jquery.js"></script> #}
+    {% comment %}
+    <script src="{{  STATIC_URL }}js/bootstrap-transition.js"></script>
+    <script src="{{  STATIC_URL }}js/bootstrap-alert.js"></script>
+    <script src="{{  STATIC_URL }}js/bootstrap-modal.js"></script>
+    <script src="{{  STATIC_URL }}js/bootstrap-dropdown.js"></script>
+    <script src="{{  STATIC_URL }}js/bootstrap-scrollspy.js"></script>
+    <script src="{{  STATIC_URL }}js/bootstrap-tab.js"></script>
+    <script src="{{  STATIC_URL }}js/bootstrap-tooltip.js"></script>
+    <script src="{{  STATIC_URL }}js/bootstrap-popover.js"></script>
+    <script src="{{  STATIC_URL }}js/bootstrap-button.js"></script>
+    <script src="{{  STATIC_URL }}js/bootstrap-collapse.js"></script>
+    <script src="{{  STATIC_URL }}js/bootstrap-carousel.js"></script>
+    <script src="{{  STATIC_URL }}js/bootstrap-typeahead.js"></script>
+    {% endcomment %}
+
+    {% block endscripts %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/jquery-1.7.1.min.js"><\/script>')</script>
+        <script src="{{  STATIC_URL }}js/bootstrap.min.js"></script>
+    {% endblock endscripts %}
+
+  </body>
+</html>

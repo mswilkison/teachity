@@ -1,0 +1,9 @@
+{%extends "projects/project_list.html" %}
+{% block title %}User Dashboard{% endblock %}
+
+{% block project_list %}
+    {% block page_heading %}<h2>My Posted Projects</h2>{% endblock page_heading %}
+    <div>
+        {% include "users/dashboard_project_list.html" %}
+    </div>
+{% endblock %}

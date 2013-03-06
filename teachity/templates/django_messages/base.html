@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block bodyclass %}about{% endblock %}
+{% block sidebar %}
+<div class="row-fluid">
+<div class="span2 well sidebar-nav">
+    <ul class="nav nav-list cat-filter">
+        <li class="nav-header">Messages</li>
+        <li><a href="{% url messages_compose %} ">{% trans "Compose" %}</a></li>
+        <li><a href="{% url messages_inbox %} ">{% trans "Inbox" %}</a></li>
+        <li><a href="{% url messages_outbox %} ">{% trans "Sent Messages" %}</a></li>
+        <li><a href="{% url messages_trash %} ">{% trans "Trash" %}</a></li>
+    </ul>
+</div>
+{% endblock %}
+{% block content %}
+{% endblock %}

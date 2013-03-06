@@ -1,0 +1,56 @@
+{%extends "loggedin.html" %}
+{% block title %}Fill out your profile{% endblock %}
+{% block content %}
+<section>
+    <article>
+
+        <div class="loginpnl learner-profile fl">
+            <h2>Create an Profile</h2>
+            <form id="frm_reg">
+                <label>Name</label><div class="textbox"><input type="text" id="" title="Your Name"  /></div>
+                <div class="clear"></div>
+                <label class="nmrb">Email Address</label><div class="textbox nmrb"><input type="text" id="" title="Email Address"  /></div>
+                <div class="clear"></div>
+                <label class="bg-none nmrb nmrt">&nbsp;</label><div class="textbox bg-none nmrb nmrt"><p> Your email address will be kept private</p></div>
+                <div class="clear"></div>
+                <label class="nmrt">City</label> <div class="textbox nmrt"><input type="text" id="" title="Email Address"  /></div>
+                <div class="clear"></div>
+                <label>Country</label> <div class="ddl"> <select id="ddl_country" class="styled"> 
+                <option>--Select Country--</option>
+                </select></div>
+                <div class="clear"></div>
+                <label>Timezone</label> <div class="ddl">
+                <select id="ddl_timezone" class="styled"> 
+                <option>--Select timezone--</option>
+                </select>
+                </div>
+                <div class="clear"></div> 
+                <label>About</label>  
+                <div class="textarea">
+                <textarea id=""> </textarea>
+                </div>
+                <div class="clear"></div>
+
+                <label>Upload Thumbnail Photo</label>  
+                <div class="textarea">
+                    <div class="fileinputs">
+                        <input type="file" class="file" />
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <input type="submit"> 
+                <div class="clear"></div>
+             </form>           
+        </div>
+        
+        <div class="loginpnlR fr">
+            <h2 class="size-25">Make sure your profile is complete</h2>
+            <h3 class="size-21">it conveys to a tutor exactly who you are</h3> <br />
+            <p>Morbi turpis odio, luctus sit amet cursus et, adipiscing eu turpis. Proin laoreet, elit eu tincidunt lacinia, lacus enim malesuada dui, Morbi turp is odio.</p>
+            <img src="{{ STATIC_URL }}images/accessories/lerner-reg.png"  alt=""/>
+        </div>
+         
+        <div class="clear"></div>
+    </article>
+</section>
+{% endblock %}

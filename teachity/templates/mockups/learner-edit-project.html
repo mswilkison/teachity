@@ -1,0 +1,72 @@
+{% extends "loggedin.html" %}
+    {% block title %}Edit Your Project{% endblock %}
+    {% block content %}
+        <section>
+            <article>
+                <div class="loginpnl fl">
+                    <h2>Edit Your Project</h2>
+                <form id="frm_reg">
+                        <label>Title</label>
+                        <div class="textbox">
+                            <input type="text" id=""     />
+                        </div>
+                        <div class="clear"></div>
+                        
+                        <label style="line-height:normal">Select Category/<br />Subject </label>
+                        <div class="ddl">
+                            <select id="ddl_subject" class="styled"> 
+                                <option>--Select Category--</option>
+                            </select>
+                        </div>
+                        <div class="clear"></div>                         
+
+                        <label>Description</label>
+                        <div class="textarea">
+                            <textarea id=""></textarea>
+                        </div>
+                        <div class="clear"></div>
+                        
+                        <label>Type of Project </label>                       
+                        <div class="ddl">
+                             <input type="radio" name="ProjectType" value="one_time" checked>&nbsp;One Time &nbsp;&nbsp;&nbsp;<input type="radio" name="ProjectType" value="recurring">&nbsp;Recurring
+                        </div>
+                        <div class="clear"></div>
+
+                        
+                </div>
+                <div class="loginpnlR loginpnl fr" style="margin-top:55px!important">              
+                        <br />
+                        <label>Type of Budget</label>
+                        <div class="ddl ddl-project">
+                            <input type="radio" name="BudgetType" value="fixed" checked>&nbsp;Fixed &nbsp;&nbsp;&nbsp;<input type="radio" name="BudgetType" value="hourly">&nbsp;Hourly
+                        </div>
+                        <div class="clear"></div> 
+
+                        <label>Fixed Budget</label>  
+                        <div class="txt-project">
+                            <input type="text" id=""  />
+                        </div>
+                        <div class="clear"></div>
+                    <label>Hourly Rate</label>  
+                    <div class="txt-project">
+                        <input type="text" id=""  />
+                    </div>
+                     
+                    <label>Upload Supporting Files</label>  
+                    <div class="textarea">
+                        <div class="fileinputs">
+                            <input type="file" class="file" />
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+
+                    <input type="submit" class="btn_projectpriview">
+                    <input type="submit" class="btn_postproject"> 
+                    <div class="clear"></div>
+                </form> 
+                </div>
+                 
+                <div class="clear"></div>
+            </article>
+        </section>
+    {% endblock %}

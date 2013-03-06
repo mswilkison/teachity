@@ -1,0 +1,136 @@
+{% extends "loggedin.html" %}
+
+{% block title %}Browse Projects{% endblock title %}
+
+{% block content %}
+    <div class="row-fluid">
+
+            <div class="span3 well sidebar-nav">
+                <ul class="nav nav-list cat-filter">
+                    <li class="nav-header">Filter By Category</li> 
+                    {% for category in categories %}
+                        <li><a href="#" data-cat="{{ category.pk }}">{{ category.title }}</a></li>
+                    {% endfor %}
+                    <li><a href="#" data-cat="all">All</a></li>
+                </ul>
+                <ul class="nav nav-list status-filter">
+                    <li class="nav-header">Filter By Status</li> 
+                    <li><a href="#" data-status="open">Open</a></li>
+                    <li><a href="#" data-status="awarded">Awarded</a></li>
+                    <li><a href="#" data-status="closed">Closed</a></li>
+                    <li><a href="#" data-status="all">All</a></li>
+                </ul>
+
+            </div>
+             
+             
+            <div class="span8">
+                <div class="search-res">
+                    <div class="fl">
+                        Search Criteria :
+                        <span>
+                            <strong>
+                            {% if search_category or search_status %}
+                                {{ search_status }} {{ search_category.title }} Projects
+                            {% else %}
+                                All
+                            {% endif %}
+                            </strong>
+                        </span>
+                        <span>
+                             (Showing <span>{{ page_obj.start_index }}-{{ page_obj.end_index }}</span> of total <span>{{ paginator.count }}</span> results)
+                        </span>
+                    </div>
+                </div>
+
+                {% block project_list %}
+                {% for project in project_list %}
+
+                        <div class="bs-docs-example">
+                            <h2><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></h2>
+                            <h5>Posted By: <a href="{{ project.student.get_absolute_url }}">{{ project.student }}</a></h3>
+                            <p>{{ project.description|truncatewords:50 }}</p>
+                            <ul class="footer-links">
+                                <li>Category : {{ project.category }}</li>
+                                <li>Budget : {{ project.get_budget_display }}</li>
+                                <li>Bids: {{ project.project_bids.count }}</li>                                
+                                <li>Status: {{ project.get_status }}</li>
+                            </ul> 
+                        </div>
+
+                {% endfor %}
+                {% endblock project_list %}
+            
+                <div class="pagination">
+
+                        {% if is_paginated %}
+                        <ul>
+                            {% for page_number in paginator.page_range %}
+                                <li{% if page_obj.number == page_number %} {% endif %}><a href="?page={{ page_number }}">{{ page_number }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+
+                </div>
+             
+            </div>
+        </div>
+    </div>         
+
+{% endblock content %}
+
+{% block endscripts %}
+{{ block.super }}
+<script>
+$(document).ready(function() {
+    var filter_params = new Object();
+    var category;
+    var project_status;
+
+    function init_params() {
+        // Sets attributes of filter_params object from querystring values
+        if (window.location.search.length > 1) {
+            var key;
+            var key_id;
+            var key_pairs = window.location.search.substr(1).split("&");
+            for (key_id = 0; key_id < key_pairs.length; key_id++) {
+                key = key_pairs[key_id].split("=");
+                filter_params[unescape(key[0])] = key.length > 1 ? unescape(key[1]) : "";
+            }
+        }
+    }
+
+    function update_qstring() {
+        // Serializes the filter_params object and uses it as the new querystring.
+        // Also removes the page key so that changing the filter resets pagination.
+        delete filter_params['page'];
+        var qstring = $.param(filter_params);
+        window.location.search = '?' + qstring;
+    }
+
+    $("ul.cat-filter a").click(function() {
+        // Handles category filtering
+        category = $(this).data("cat");
+        if (category === 'all') {
+            delete filter_params['c'];
+        } else {
+            filter_params.c = category;
+        }
+        update_qstring();
+    });
+
+    $("ul.status-filter a").click(function() {
+        // Handles status filtering
+        project_status = $(this).data("status");
+        if (project_status === 'all') {
+            delete filter_params['s'];
+        } else {
+            filter_params.s = project_status;
+        }
+        update_qstring();
+    });
+
+    init_params();
+});
+</script>
+{% endblock endscripts %}

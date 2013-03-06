@@ -1,0 +1,13 @@
+/*    
+Fix Css for ie7 and lower
+*/
+nav nav .tuter-search input[type=text] {top:-1px!important; position:relative}
+section article .postedproj .proj-row ul {height:18px }
+.loginpnl .textarea  {width:270px; display:block; float:left; margin:10px 0 10px 5px!important;}
+.loginpnl .textarea .fileinputs {float:right }
+.loginpnl .txt-project input[type="text"] { border:none;  line-height:26px !important; margin:2px 0 0 0!important ; width:110px !important; }
+
+.txt-project {background:url(../images/inputs/txt_project-bg.png) 0 0 no-repeat scroll; display:block; width:200px; float:left; padding:0 5px 0 0px!important; font-size:18px; color:#3d5b58;  margin:10px 0 10px 10px;}
+.txt-project input[type=text]{border:0; background:fff; width:112px!important; margin:2px 0px 0 0; height:26px; line-height:26px!important}
+
+

@@ -1,0 +1,54 @@
+{%extends "loggedin.html" %}
+{% block title %}Teachity: Preview Project{% endblock %}
+{% block content %}
+    <section>
+        <article>
+            <div class="priview-project">
+                <h3 class="priviewh3">Preview</h3>
+                <h2>Need a tutor to teach Mathematics and English</h2>
+                <ul>
+                    <li><span class="npdl">Category    :<a href="#"> Mathematics </a></span></li>
+                    <li><span>Budget :<a href="#"> 1200USD (Fixed)  </a></span></li>
+                    <li><span>Type :<a href="#"> OneTime </a></span></li>
+                    <div class="clear"></div>
+                </ul>
+                <h3>Project Description</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id sem justo, scelerisque rhoncus tortor. In et velit risus. Ut eget massa elit, ut consequat ante. Pellentesque sit amet nisi nulla. Phasellus dui est, laoreet sed dapibus vitae, commodo vitae enim. Nunc convallis dui leo. Vivamus et eros congue nunc laoreet posuere. Vestibulum egestas luctus velit, et condimentum neque ultrices non. Donec vestibulum dolor nec lectus pretium adipiscing quis sagittis dui. Pellentesque tempus, ipsum vel facilisis sollicitudin, ipsum dolor convallis elit, eu imperdiet felis nisl non metus.</p>
+
+                <p>Donec vel mauris diam, convallis hendrerit lacus. Donec malesuada feugiat risus, vitae tincidunt ante viverra at. Donec eget purus sem. Suspendisse eget posuere enim. Nunc molestie eros arcu, vel rutrum ante. Duis rhoncus lectus non sem posuere gravida. Nulla semper nisl in elit porta congue. Fusce consequat libero adipiscing eros blandit consectetur. Duis ultrices laoreet orci et sollicitudin. Nullam convallis dolor ac urna dapibus pretium in ut orci. Fusce molestie felis sed metus molestie porta. Nam adipiscing placerat nisi, sed accumsan orci mattis vitae.</p>
+
+                <p>Vivamus non lorem vestibulum risus bibendum dapibus. Etiam quis nulla ante. Vestibulum laoreet feugiat eros in consequat. Praesent laoreet sem nec lectus bibendum id pretium dui lacinia. Quisque aliquam accumsan felis ac consequat. Cras porttitor massa vitae libero faucibus luctus at nec quam. Proin vel tempor ipsum. Donec feugiat ante id neque tristique auctor.</p>
+
+                <div class="reqsf fl"> 
+                    <h3>Required Skills</h3>
+                    <ul> 
+                        <li>Lorem ipsum dolor sit ame onsectetur </li>
+                        <li>Adipiscing el c id sem justo celerisque rhoncu </li>
+                        <li>Tortor  et velit ris eget massa eli t cons </li>
+                        <li>Equat ante ellentesque sit amet n hasellus du </li>
+                        <li>Est laoreet sed dapibus vita commodo </li>
+                    </ul>
+                </div>
+
+                <div class="reqsf fr"> 
+                    <h3>Files</h3>
+                    <ul> 
+                        <li>Lorem ipsum dolor.docx</li>
+                        <li>Adipiscing el c id sem.jpeg</li>
+                        <li>Equat ante ellentesq.pptx</li>
+                        <li>Est laoreet sed dapibus.png </li>
+                    </ul>
+                </div>
+
+                <div class="clear"> </div>
+                           
+                <div class="post-edit">
+                    <a href="#"><img src="{{ STATIC_URL }}images/inputs/btn_edit.png" width="65" /></a>
+                    <a href="#"><img src="{{ STATIC_URL }}images/inputs/btn_postproject_115x38.png" /></a>
+                </div>
+            </div>
+                          
+            <div class="clear"></div>
+        </article>
+    </section>
+{% endblock %}

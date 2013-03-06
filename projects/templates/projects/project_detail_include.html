@@ -1,0 +1,54 @@
+<div class="bs-docs-example">
+    <h2>
+        {{ project.title }}
+    </h2>
+    <h5>Posted By: <a href="{{ project.student.get_absolute_url }}">{{ project.student }}</a>
+    </h5>
+    <h5>
+        {% if request.user == project.student.user %}
+        <a href="{% url projects_edit pk=project.pk %}" class="project-edit-link">Edit this project</a>
+        {% endif %}
+    </h5>
+    <div {% if bid_saved or bid_form %} class="bid-left"{% endif %}>
+        <div><em>{{ project.description|linebreaks }}</em></div>
+        <div>
+            {% if project.required_skills.exists %}
+            <ul class="footer-links">
+                <li>Required Skills:</li>
+                {% for skill in project.required_skills.all %}
+                <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div>
+            {% if project.project_files.exists %}
+            <ul class="footer-links">
+                <li>Files:</li>
+                {% for file in project.project_files.all %}
+                <li><a href="{{ file.project_file.url }}">{{ file.project_file.name }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        
+
+            <ul class="footer-links">
+                <li>Category : {{ project.category }}</li>
+                <li>Budget : {{ project.get_budget_display }}</li>
+                <li>Type : {{ project.get_project_type_display }}</li>
+                <li>Status: <span id="project-status">{{ project.get_status }}</span></li>
+        </div>
+        {% if project.is_awarded %}
+            {% if request.user == project.student.user %}
+                <a class="btn btn_sndmsg" href="{% url messages_compose_to recipient=project.get_tutor.user.username %}">Send Message to Tutor</a>
+            {% elif request.user == project.get_tutor.user %}
+                <a class="btn btn_sndmsg" href="{% url messages_compose_to recipient=project.student.user.username %}">Send Message to Student</a>
+            {% endif %}
+        {% endif %}
+        {% if request.user.get_profile.get_user_type == 'Tutor' and not bid_saved and not bid_form and not project.is_awarded %}
+        <button id="btn_get_bid_form" class="btn btn-info">Submit a Bid</button>
+        {% endif %}
+    
+
+    </div><!--project-wrapper-->

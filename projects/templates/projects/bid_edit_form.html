@@ -1,0 +1,56 @@
+{% extends "loggedin.html" %}
+{% block title %}Edit Your Bid{% endblock %}
+
+{% block content %}
+            <div class="priview-project">
+                {% include 'projects/project_detail_include.html' %}
+            </div>
+            <div class="bid-form">
+                <form id="bid-form" action="" enctype="multipart/form-data" method="post">
+                    {% csrf_token %}
+                    <h3>Modify Your Proposal</h3>
+                    {% if bid.budget_type != bid.project.budget_type %}
+                        {% if bid.budget_type == 'hourly' %}
+                            <p><strong>Please note:</strong> The project you are bidding on has been edited since you submitted your bid and it now has a fixed budget. Please change your bid amount to reflect a fixed budget.</p>
+                        {% elif bid.budget_type == 'fixed' %}
+                            <p><strong>Please note:</strong> The project you are bidding on has been edited since you submitted your bid and it now has an hourly budget. Please change your bid amount to reflect an hourly budget.</p>
+                        {% endif %}
+                    {% endif %}
+                    {{ form.description.errors }}
+                    <div class="textarea">{{ form.description }}</div>
+
+                    <div class="form-bid">
+                        {{ form.budget.errors }}
+                        <label for="id_budget">Bid Amount</label>
+                        <div class="textarea">{{ form.budget }}</div>
+                        <fieldset>
+                            <legend>Supporting Files</legend>
+                            {{ bidfile_formset.management_form }}
+                            {% for formset in bidfile_formset %}
+                                {{ formset.id }}
+                                <div class="form-row inline {{ bidfile_formset.prefix }}">
+                                    {{ formset.bid_file.errors }}
+                                    <div class="fileinput">{{ formset.bid_file }}</div>
+                                </div>
+                            {% endfor %}
+                        </fieldset>
+                        <input type="submit" id="btn_bidnow" class="btn btn-info"/>
+                    </div>
+                </form>
+            </div>                 
+{% endblock content %}
+
+{% block endscripts %}
+    {{ block.super }}
+    <script src="{{ STATIC_URL }}js/jquery.formset.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btn_get_bid_form").hide();
+            // Inline formset for bid files
+            $(".form-row.inline.bid_files").formset({
+                prefix: "bid_files",
+                formCssClass: "bid_files"
+            });
+        });
+    </script>
+{% endblock endscripts %}

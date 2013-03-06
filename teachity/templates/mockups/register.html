@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Create an account{% endblock %}
+{% block content %}
+<section> 
+    <article>
+        <div class="loginpnl fl">
+            <h2>Create an Account</h2>
+            <form id="frm_reg">
+                <label>Your Name</label>
+                    <div class="textbox"> <input type="text" id="" title="Your Name"  /> </div>
+                    <div class="clear"></div>
+                <label>Email Address</label>
+                    <div class="textbox"><input type="text" id="" title="Email Address"  /></div>
+                    <div class="clear"></div>
+                <label>Confirm Email Address</label>
+                    <div class="textbox"><input type="text" id="" title="Confirm Email Address"  /></div>
+                    <div class="clear"></div>
+                <label>Create Password</label>
+                    <div class="textbox"> <input type="password" id="" title="Create Password"  /> </div>
+                    <div class="clear"></div>
+                <label>Confirm Password</label>
+                    <div class="textbox"> <input type="password" id="" title="Confirm Password"  /> </div>
+                    <div class="clear"></div>
+                <br />
+                <p class="nmrl p-reg">I am a: &nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="ProfileType" value="learner" checked>&nbsp;Learner &nbsp;&nbsp;&nbsp;<input type="radio" name="ProfileType" value="tutor">&nbsp;Tutor
+                </p>
+                <div class="clear"></div>
+                <br />
+                <p class="nmrl p-reg"><input type="checkbox" id="" checked="true" class="styled">Newsletter Subscription </p>
+                <p><input type="checkbox" id="" checked="true" class="styled"><a href="#">Terms and Condition</a></p>  
+                <div class="clear"></div><br />
+                <input type="submit" class="btn_reg">
+                <div class="clear"></div>
+            </form>
+
+            <br /> <br />
+
+            <h2>or Sign In with</h2>
+            <a href="#"><img src="{{ STATIC_URL }}images/icons/f-connect.png" width="107" height="25" alt="Sign in with.." /></a>
+        </div>
+
+        <div class="loginpnlR fr">
+            <h2 class="size-25">Become a member of Teachity</h2>
+            <h3 class="size-21">and connect to thousands of tutors and learners </h3> <br />
+            <p>Morbi turpis odio, luctus sit amet cursus et, adipiscing eu turpis. Proin laoreet, elit eu tincidunt lacinia, lacus enim malesuada dui, Morbi turp is odio.</p>
+            <img src="{{ STATIC_URL }}images/accessories/register-image.jpg"  alt=""/>
+        </div>
+         
+         <div class="clear"></div>
+     </article>
+ </section>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends "loggedin.html" %}
+{% block title %}{% if form.instance.pk %}Update{% else %}Create{% endif %} Your Project{% endblock %}
+{% block content %}
+                <div class="row-fluid">
+                        <div class="span5">
+                            <h2>{% if form.instance.pk %}Update{% else %}Create{% endif %} Your Project</h2>
+                            <form class="form-horizontal" action="" enctype="multipart/form-data" method="post">
+                                {% csrf_token %}
+                                <div class="control-group">
+                                    {{ form.title.errors }}
+                                    <label class="control-label">{{ form.title.label_tag }}</label>
+                                    <div class="controls textbox">{{ form.title }}</div>
+                                </div>
+                                    
+                                <div class="control-group">
+                                    {{ form.category.errors }}
+                                    <label class="control-label">{{ form.category.label_tag }}</label>
+                                    <div class="controls">{{ form.category }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {{ form.description.errors }}
+                                    <label class="control-label">{{ form.description.label_tag }}</label>
+                                    <div class="controls textarea">{{ form.description }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {{ form.project_type.errors }}
+                                    <label class="control-label">{{ form.project_type.label_tag }}</label>
+                                    <div class="controls">{{ form.project_type }}</div>
+                                </div>
+
+                                <div class="control-group">              
+                                    {{ form.budget_type.errors }}
+                                    <label class="control-label"{{ form.budget_type.label_tag }}</label>
+                                    <div class="controls">{{ form.budget_type }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {{ form.budget.errors }}
+                                    <label class="control-label">{{ form.budget.label_tag }}</label>
+                                    <div class="controls textbox">{{ form.budget }}</div>
+                                </div>
+
+                                <fieldset>
+                                    <legend>Required Skills</legend>
+                                    {{ requiredskill_formset.management_form }}
+                                    {% for formset in requiredskill_formset %}
+                                        {{ formset.id }}
+                                        <div class="control-group form-row inline {{ requiredskill_formset.prefix }}">
+                                            {{ formset.name.errors }}
+                                            <label class="control-label"{{ formset.name.label_tag }}</label>
+                                            <div class="controls textbox">{{ formset.name }}</div>
+                                            {% if requiredskill_formset.can_delete and formset.instance.pk %}
+                                                {{ formset.DELETE }}
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                </fieldset>                        
+
+                                <fieldset>
+                                    <legend>Upload Supporting Files</legend>
+                                    {{ projectfile_formset.management_form }}
+                                    {% for formset in projectfile_formset %}
+                                        {{ formset.id }}
+                                        <div class="control-group form-row inline {{ projectfile_formset.prefix }}">
+                                            {{ formset.project_file.errors }}
+                                            <label class="control-label"{{ formset.project_file.label_tag }}</label>
+                                            <div class="controls fileinput">{{ formset.project_file }}</div>
+                                            {% if projectfile_formset.can_delete and formset.instance.pk %}
+                                                {{ formset.DELETE }}
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                </fieldset>
+
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input type="submit" name="project_post" value="Post Project" class="btn btn-info"><br /><br />
+                                        {% if not form.instance.published %}
+                                            <input type="submit" name="project_preview" value="Save as Draft" class="btn">
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </form> 
+                        </div>
+
+                    <div class="span5">
+                        <h2>Describe your project in detail</h2>
+                        <h3>so that tutors know exactly what you need help with</h3>
+                        <br />
+                        <img src="{{ STATIC_URL }}images/accessories/register-image.jpg"  alt=""/>
+                    </div>
+
+                </div>
+
+{% endblock content %}
+
+{% block endscripts %}
+    {{ block.super }}
+    <script src="{{ STATIC_URL }}js/jquery.formset.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var skills_prefix = "{{ requiredskill_formset.prefix }}";
+            var files_prefix = "{{ projectfile_formset.prefix }}";
+            $(".form-row.inline." + skills_prefix).formset({
+                prefix: skills_prefix,
+                formCssClass: skills_prefix
+            });
+            $(".form-row.inline." + files_prefix).formset({
+                prefix: files_prefix,
+                formCssClass: files_prefix
+            });
+        });
+    </script>
+{% endblock endscripts %}

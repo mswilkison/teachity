@@ -1,0 +1,8 @@
+{% extends "loggedin.html" %}
+
+{% block title %}Teachity: Stripe Connect Successful{% endblock %}
+
+{% block content %}
+<h1>Congrats!</h1>
+<p>Your Stripe account has been added and you can start receiving payments. <a href="{% url projects_browse %}">Bid on a job now!</a></p>
+{% endblock %}

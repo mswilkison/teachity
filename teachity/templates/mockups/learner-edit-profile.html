@@ -1,0 +1,97 @@
+{%extends "loggedin.html" %}
+{% block title %}Teachity: Edit Profile{% endblock %}
+{% block java %}
+// for file upload button	
+	initFileUploads();
+	$("header").addClass("bdrb-none");
+	$(".ul-login").hide();
+    $('.btn_reg').click(function(e) {
+        reg_click(); 
+    });
+
+function FocusBlur()
+{
+	
+	$('input[type=text]').each(function(){
+		this.value = $(this).attr('title');
+    $(this).focus(function(){
+       if(this.value == $(this).attr('title')) {
+       this.value = '';
+	   //$(this).addClass('text-label');
+       	}
+    });
+ 
+    $(this).blur(function(){
+        if(this.value == '') {
+        this.value =$(this).attr('title');
+	    // $(this).addClass('text-label');
+        }
+    });
+	});
+}
+{% endblock %}
+{% block content %}
+<section>
+  <article>
+ <div class="loginpnl learner-profile fl">
+ <h2>Edit your profile</h2>
+ <form id="frm_reg">
+ <label>Name</label><div class="textbox"> <input type="text" id="" title="Your Name"  value="Tim Cooper" /> </div>
+ <div class="clear"></div>
+<label>Email Address</label> <div class="textbox"><input type="text" id="" title="Email Address" value="tim@cooper.com"  /></div>
+ <div class="clear"></div>
+ 
+
+<label>City</label> <div class="textbox"><input type="text" id="" title="city" value="My Address"  /></div>
+ <div class="clear"></div>
+<label>Country</label> <div class="ddl"> <select id="ddl_country" class="styled"> 
+<option>--Select Country--</option>
+<option selected="true">United States</option>
+</select></div>
+ <div class="clear"></div>
+<label>Timezone</label> <div class="ddl">
+<select id="ddl_timezone" class="styled"> 
+<option>--Select timezone--</option>
+<option selected="true">+10.30 Alaska</option>
+</select>
+ </div>
+ <div class="clear"></div> 
+<label>About</label>  
+<div class="textarea">
+<textarea id="">I am a student </textarea>
+</div>
+<div class="clear"></div>
+
+<label>Upload Thumbnail Photo</label>  
+<div class="textarea">
+   <div class="fileinputs">
+                    <input type="file" class="file" />
+                </div>
+</div>
+<div class="clear"></div>
+
+
+
+<input type="submit"> 
+ <div class="clear"></div>
+ </form>
+ 
+</div>
+<div class="loginpnlR fr">
+<h2 class="size-25">Make sure your profile is complete</h2>
+<h3 class="size-21">it conveys to a tutor exactly who you are</h3> <br />
+
+
+
+<p>
+Morbi turpis odio, luctus sit amet cursus et, adipiscing eu turpis. Proin laoreet, elit eu tincidunt lacinia, lacus enim malesuada dui, Morbi turp is odio.
+</p>
+<img src="{{ STATIC_URL }}images/accessories/lerner-reg.png"  alt=""/>
+
+
+</div>
+ 
+ <div class="clear"></div>
+ </article>
+ </section>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "users/base_public_profile.html" %}
+{% block title %}Tutor Profile{% endblock %}
+
+{% block extra_profile_content %}
+    {% if userprofile.tutor.skills.strip %}
+        <h3>Skills</h3>
+        {{ userprofile.tutor.skills|linebreaks }}
+    {% endif %}
+
+    {% if userprofile.tutor.other_qualifications.strip %}
+        <h3>Qualifications</h3>
+        {{ userprofile.tutor.other_qualifications|linebreaks }}
+    {% endif %}
+{% endblock extra_profile_content %}

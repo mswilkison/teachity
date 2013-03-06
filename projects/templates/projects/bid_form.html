@@ -1,0 +1,32 @@
+<div>
+    <div>
+        <div>
+            <form id="bid-form" action="{% url projects_create_bid project_id=project.id %}" enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                <h3>Submit your proposal</h3>
+                {{ bid_form.description.errors }}
+                <div class="textarea">{{ bid_form.description }}</div>
+
+                <div class="form-bid">
+                    {{ bid_form.budget.errors }}
+                    <label for="id_budget">Bid Amount<!--(Includes Teachity fee of $2.00)--></label>
+                    <div class="textarea">{{ bid_form.budget }}</div>
+                    <div class="clear"></div>
+                    <fieldset>
+                        <legend>Supporting Files</legend>
+                        {{ bidfile_formset.management_form }}
+                        {% for formset in bidfile_formset %}
+                            {{ formset.id }}
+                            <div class="form-row inline {{ bidfile_formset.prefix }}">
+                                {{ formset.bid_file.errors }}
+                                <div class="fileinput">{{ formset.bid_file }}</div>
+                            </div>
+                            <div class="clear"></div>
+                        {% endfor %}
+                    </fieldset>
+                    <input type="submit" id="btn_bidnow"/>
+                </div>
+            </form>
+        </div>                 
+    </div>
+</div>

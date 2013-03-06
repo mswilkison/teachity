@@ -1,0 +1,169 @@
+{% extends "loggedin.html" %}
+{% load dajaxice_templatetags %}
+{% load thumbnail %}
+{% block title %}Teachity: Project Detail{% endblock %}
+{% block imports %}
+    {{ block.super }}
+    {% dajaxice_js_import %}
+{% endblock imports %}
+
+{% block content %}
+                {% include 'projects/project_detail_include.html' %}
+
+                <div id="bid-form-wrapper">
+                    {% if bid_saved %}
+                    <div>
+                        <div>
+                            <div><h3>Thank you for submitting your bid!</h3></div>
+                        </div>
+                    </div>
+                    {% elif bid_form %}
+                        {% include 'projects/bid_form.html' %}
+                    {% endif %}
+                </div>
+
+                <div id="join-classroom">
+                    {% if project.is_awarded %}
+                        {% if request.user == project.student.user or request.user == project.get_tutor.user %}
+                            <a href="{% url projects_classroom project_id=project.id %}" class="btn btn-large btn-block btn-info">Join Project Classroom</a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+
+            <div>
+                    
+                <div>
+                    <div>
+                        {% for bid in bid_list %}
+                            <div class="bs-docs-example-bid">
+                                    {% thumbnail bid.tutor.picture "38x38" crop="center" as im %}
+                                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                    {% empty %}
+                                    {% endthumbnail %}
+                                <div>
+                                    <h2><a href="{{ bid.tutor.get_absolute_url }}">{{ bid.tutor }}</a></h2>
+                                        <h5>
+                                            {% if bid.can_edit and request.user == bid.tutor.user %}
+                                            <a href="{% url projects_bid_edit pk=bid.id %}">Edit this bid</a>
+                                            {% endif %}
+                                        </h5>
+                                    <h5>{{ bid.tutor.get_location }}</h5>
+                                    <!--<ul>
+                                        {# TODO: Static info #}
+                                        <li class="bg-none"><span class="npdl">$12987 Career Earnings</span></li>
+                                        <li><span>3 Career Jobs</span></li>
+                                        <li><span>Rating  <a href="#"><img src="{{ STATIC_URL }}images/icons/star.png" /></a></span></li>
+                                        <li><span>Submitted: {{ bid.created }}</span></li>
+                                    </ul>-->
+                                    <em>{{ bid.description|linebreaks }}</em>
+
+                                    <ul class="footer-links">
+                                    <li>Bid Amount: {{ bid.get_budget_display }}</li>
+                                    {% if bid.bid_files.exists %}
+                                        <li>
+                                            Supporting Files:
+                                            {% for file in bid.bid_files.all %}
+                                                <a href="{{ file.bid_file.url }}">{{ file.bid_file.name }}</a>
+                                            {% endfor %}
+                                        </li>
+                                    {% endif %}
+                                    </ul>
+                                    <ul class="footer-links">
+
+                                       
+                                        {% if request.user == project.student.user %}
+                                            {% if bid.awarded %}
+                                                <span class="label label-success">Project Awarded</span>
+                                            {% elif not project.is_awarded %}
+                                                {% if not bid.declined %}
+                                                    <input type="button" class="btn btn-info btn_award" id="award-{{ bid.id }}" data-bid_id="{{ bid.id }}" value="Award"/>
+                                                {% endif %}
+                                            {% endif %}
+                                            {% if bid.declined %}
+                                                <span class="label label-important">Bid Declined</span>
+                                            {% elif not project.is_awarded %}
+                                                <input type="button" class="btn btn_dbid" id="decline-{{ bid.id }}" data-bid_id="{{ bid.id }}" value="Decline"/>
+                                            {% endif %}
+                                            <br><br>
+                                            <a class="btn btn_sndmsg" href="{% url messages_compose_to recipient=bid.tutor.user.username %}">Send Message</a>
+                                            <br><br>
+                                            {% if bid.awarded and bid.tutor.user.stripeaccesskey_set.exists %}
+                                                <form action="{% url stripe_handle_payment project_id=project.id %}" method="post">
+                                                    {% csrf_token %}
+                                                    <div class="control-group">
+                                                        <div class="control-label">{{ stripe_payment_form.amount.label_tag }}</label>
+                                                        <div class="controls">{{ stripe_payment_form.amount }}</div>
+                                                        <script src="https://button.stripe.com/v1/button.js" class="stripe-button" data-key="{{ stripe_published_key }}"></script>
+                                                    </div>
+                                                </form>
+                                            {% endif %}
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        {% comment %}
+                        <div class="tabs-div" align="center">
+                            <a href="#"><img src="{{ STATIC_URL }}images/inputs/btn_proposals.png" width="234" /></a>
+                        </div>
+                        {% endcomment %}
+                    </div>
+                </div>                                 
+            </div><!--details-tabs-->          
+
+{% endblock content %}
+
+{% block endscripts %}
+    {{ block.super }}
+    <script src="{{ STATIC_URL }}js/jquery.formset.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var project_id = {{ project.id }};
+            // Inserts the bid form into the page
+            function load_bid_form(data) {
+                $("#bid-form-wrapper").replaceWith(data);
+                // Inline formset for bid files
+                $(".form-row.inline.bid_files").formset({
+                    prefix: "bid_files",
+                    formCssClass: "bid_files"
+                });
+            }
+            function award_callback(data) {
+                var bid_id = data["bid_id"];
+                var button = $("#award-" + bid_id);
+                button.siblings(".btn_dbid").hide();
+                button.replaceWith("<span class='label label-success'>Project Awarded</span>");
+                $(".btn_award").hide()
+                $("#project-status").html("Awarded");
+                $("#join-classroom").html("<a href='{% url projects_classroom project_id=project.id %}' class='btn btn-large btn-block btn-info'>Join Project Classroom</a>");
+            }
+            function decline_callback(data) {
+                var bid_id = data["bid_id"];
+                var button = $("#decline-" + bid_id);
+                button.siblings(".btn_award").hide();
+                button.replaceWith("<span class='label label-important'>Bid Declined</span>");
+            }
+            $("#btn_get_bid_form").click(function(e) {
+                // Hide the clicked button and shift the project display to the left
+                $(this).hide();
+                $("#project-wrapper").addClass("bid-left");
+                // Get the bid form
+                Dajaxice.projects.get_bid_form(load_bid_form, {'project_id': project_id});
+            });
+            // Award the project
+            $(".btn_award").click(function(e) {
+                Dajaxice.projects.award_project(award_callback, {
+                    'project_id': project_id,
+                    'bid_id': $(this).data("bid_id")
+                });
+            });
+            // Decline the bid
+            $(".btn_dbid").click(function(e) {
+                Dajaxice.projects.decline_bid(decline_callback, {
+                    'project_id': project_id,
+                    'bid_id': $(this).data("bid_id")
+                });
+            });
+        });
+    </script>
+{% endblock endscripts %}

@@ -1,0 +1,91 @@
+{% extends "loggedin.html" %}
+{% load dajaxice_templatetags %}
+
+{% block title %}Teachity: Project Classroom{% endblock %}
+
+{% block imports %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="http://static.awwapp.com/plugin/1.0/aww.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://static.awwapp.com/plugin/1.0/aww.min.js"></script>
+    <style type="text/css">
+        #wrapper {
+            border: 1px solid black;
+            width: 90%;
+            height: 300px;
+            margin: 0 auto;
+        }
+    </style>
+{% endblock imports %}
+
+{% block content %}
+    <center>Audio or video problems? <a href="{% url faq %}">Click here</a> to troubleshoot.
+    </center>
+    <div class="row-fluid">
+    <div class="span6">
+        <div id="classroom-chat">
+            <div class="span5">
+                    <div id="my-video"></div>
+            </div>
+            <div class="span5">
+                <div id="other-video"></div>
+            </div>
+        </div>
+    </div>
+    <div class="span6">
+        <div id="wrapper"></div>
+        <script type="text/javascript">
+            var aww = $('#wrapper').awwCanvas({apiKey: 'f8791ed9-03ae-4a7c-980a-39a50696d162'});
+            $(window).resize(function() {$('#wrapper').awwCanvas().resize();});
+        </script>
+    </div>
+
+{% endblock content %}
+
+{% block endscripts %}
+    {{ block.super }}
+    <script src="https://swww.tokbox.com/webrtc/v2.0/js/TB.min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/jquery.scrollto.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8">
+        var session = TB.initSession("{{ tokbox_session_id }}");
+        var api_key = "{{ tokbox_api_key }}";
+        var token = "{{ tokbox_token }}";
+        var classroom_div = $("#classroom-chat");
+        //var my_vid = "<div id=\"my-video\" class=\"stream-container\"></div>";
+        TB.addEventListener("exception", exceptionHandler);
+        session.addEventListener("sessionConnected", sessionConnectedHandler);
+        session.addEventListener("streamCreated", streamCreatedHandler);
+        var publisher = TB.initPublisher(api_key, "my-video");
+        session.connect(api_key, token);
+
+        function sessionConnectedHandler(event) {
+            subscribeToStreams(event.streams);
+            //classroom_div.prepend(my_vid);
+            session.publish(publisher);
+        }
+
+        function streamCreatedHandler(event) {
+            subscribeToStreams(event.streams);
+        }
+
+        function subscribeToStreams(streams) {
+            for (i = 0; i < streams.length; i++) {
+                var stream = streams[i];
+                if (stream.connection.connectionId != session.connection.connectionId) {
+                    //var other_vid = "<div id=\"other-video\" class=\"stream-container\"></div>";
+                    //classroom_div.prepend(other_vid);
+                    session.subscribe(stream, "other-video");
+                }
+            }
+        }
+
+        function exceptionHandler(event) {
+            if (event.code == 1004) {
+                document.body.innerHTML = "This page is trying to connect a third client to an OpenTok peer-to-peer session. "
+                    + "Only two clients can connect to peer-to-peer sessions.";
+            }
+        }
+
+</script>
+
+{% endblock endscripts %}

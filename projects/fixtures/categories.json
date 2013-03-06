@@ -1,0 +1,72 @@
+[
+    {
+        "pk": 1, 
+        "model": "projects.category", 
+        "fields": {
+            "created": "2012-10-01T17:03:45Z", 
+            "description": "", 
+            "modified": "2012-10-03T00:38:55Z", 
+            "title": "Science"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "projects.category", 
+        "fields": {
+            "created": "2012-10-03T00:39:03Z", 
+            "description": "", 
+            "modified": "2012-10-03T00:39:03Z", 
+            "title": "Mathematics"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "projects.category", 
+        "fields": {
+            "created": "2012-10-03T00:39:13Z", 
+            "description": "", 
+            "modified": "2012-10-03T00:39:13Z", 
+            "title": "Reading/Writing"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "projects.category", 
+        "fields": {
+            "created": "2012-10-03T00:39:24Z", 
+            "description": "", 
+            "modified": "2012-10-03T00:39:24Z", 
+            "title": "Foreign Language"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "projects.category", 
+        "fields": {
+            "created": "2012-10-03T00:39:46Z", 
+            "description": "", 
+            "modified": "2012-10-03T00:39:46Z", 
+            "title": "College Admissions"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "projects.category", 
+        "fields": {
+            "created": "2012-10-03T00:40:54Z", 
+            "description": "", 
+            "modified": "2012-10-03T00:41:23Z", 
+            "title": "Career Counseling"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "projects.category", 
+        "fields": {
+            "created": "2012-10-03T00:41:04Z", 
+            "description": "", 
+            "modified": "2012-10-03T00:41:04Z", 
+            "title": "Other"
+        }
+    }
+]

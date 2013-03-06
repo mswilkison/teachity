@@ -1,0 +1,1 @@
+{{ site }}: You received a bid!

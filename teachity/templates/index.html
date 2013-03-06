@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block title %}Teachity: Tutoring Experience{% endblock %}
+{% block imports %}
+<!-- Scolling Content Css -->
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/scoller.css" />
+
+{% endblock %}	
+{% block intro %}
+<section class="home hero-unit">
+
+<br />
+<br />
+<div><center>
+<img src="{{ STATIC_URL }}images/accessories/tutotring-exprince.png" width="976" height="110" align="absmiddle" alt="" />
+<div class="container"><h3>Welcome to our peer-to-peer online learning marketplace! We have expert tutors, teachers and advisers from around the globe standing by. Whatever you need to learn, we can find a tutor who can help!</h3></div>
+<a href="{% url registration_register %}" class="btn btn-xlarge btn-info">register now</a>
+<div><img src="{{ STATIC_URL }}images/accessories/how-it-works.png" width="970" alt=""/></div>
+</center></div>
+</section>
+{% endblock %}
+{% block content %}
+<div style="position:relative; top:-40px;">
+<div class="container">
+<!--
+<div class="row-fluid">
+<div class="span5">
+<h3>Learners</h3>
+<p>Find an expert tutor, teacher, mentor, or coach to advise you. With hundreds of real-life instructors at your fingertips you'll never have to struggle through a new task on your own</p>
+<ul> 
+<li>Essay proofreading/editing</li>
+<li>Exam preparation</li>
+<li>Homework help</li>
+<li>College admissions advising</li>
+<li>Resume review and mock interviews</li>
+<li>Traditional academic tutoring/instruction</li>
+<li>Foreign language practice</li>
+<li>Standardized test/professonial exam prep</li>
+</ul>
+<a href="{% url projects_create %}" class="btn btn-info">Start Learning</a>
+
+</div>
+<div class="span5">
+
+<h3>Tutors</h3>
+<p>Discover hundreds of eager clients willing to pay for you expertise. Teaching, coaching, or mentoring has never been so convenient</p>
+<ul> 
+<li>Qualified leads who fit your expertise</li>
+<li>Start earning immediately</li>
+<li>Convenient video chat interface</li>
+<li>Large pool of potential new clients</li>
+<li>Set your own prices and work for yourself</li>
+<li>Work according to your own schedule</li>
+<li>Easy, secure payments</li>
+<li>Manage clients with a convenient dashboard</li>
+</ul>
+<a href="{% url projects_browse %}" class="btn btn-info">Start Teaching</a>
+
+</div>
+
+<div class="span2">
+
+<h3>Categories</h3>
+<ul class="categroies"> 
+<li>Math</li>
+<li>Reading/Writing</li>
+<li>Science</li>
+<li>Foreign Language</li>
+<li>Standardized Tests</li>
+<li>Professional Exams</li>
+<li>College Admissions</li>
+<li>Career Counseling</li>
+<li>Other</li>
+</ul>
+</div>
+</div> 
+-->
+<div class="row-fluid">
+<div class="span6">
+<h3>Featured Projects</h3>
+<h4>Need a math tutor to help out with my Algebra II homework!</h4>
+<p>I'm the parent of an 8th grader looking for someone to tutor him on a weekly basis. He needs help reviewing new material and reinforcing his understanding of basic concepts.
+</p>
+
+<h4>GMAT Tutor Needed</h4>
+<p>I'm gearing up for MBA applications and need someone to tutor me on the GMAT.Aiming for a 700+ score so someone who has scored in the top percentile would be ideal!
+</p>
+
+<!--<h4>History Essay Review</h4>
+<p>I need someone to proofread/edit a paper for my history class. Mostly looking for any careless mistakes, grammatical errors and any section that aren't especially clear.
+</p>-->
+</div>
+
+<div class="span6">
+<h3>Featured Tutors</h3>
+<h4>Check out the awesome tutors standing by to help you learn!</h4>
+<div class="span5">
+<img class="profile" src="{{ STATIC_URL }}images/accessories/author-img01.jpg" width="58" height="58" alt="" align="left" padding="10"/>
+<h5 style="margin-top: 2px;">John Smith</h5>
+<span>Math Expert</span>
+<span>USA</span>
+</div>
+<div class="span5">
+<img class="profile" src="{{ STATIC_URL }}images/accessories/author-img02.jpg" width="58" height="58" alt="" align="left"/>
+<h5 style="margin-top: 2px;">Sarah Roberts</h5>
+<span>English Teacher</span>
+<span>USA</span>
+</div>
+    <br>
+    <br>
+    <br>
+    <br>
+<div class="span5">
+    <img class="profile" src="{{ STATIC_URL }}images/accessories/author-img05.jpg" width="58" height="58" alt="" align="left" padding="10"/>
+    <h5 style="margin-top: 2px;">Yi Zhao</h5>
+    <span>Mandarin Tutor</span>
+    <span>China</span>
+</div>
+<div class="span6">
+    <img class="profile" src="{{ STATIC_URL }}images/accessories/author-img03.jpg" width="58" height="58" alt="" align="left"/>
+    <h5 style="margin-top: 2px;">Mike Rodriguez</h5>
+    <span>College Counselor</span>
+    <span>Canada</span>
+</div>
+
+</div>
+
+
+</div>
+
+{% endblock %}
+
+{% block endscripts %}
+{{ block.super }}
+    <!-- Js for Scrolling -->
+    <script language="javascript" type="text/javascript" src="{{ STATIC_URL }}js/scroll/jquery.tinyscrollbar.min.js"></script>
+{% endblock endscripts %}
+</div>

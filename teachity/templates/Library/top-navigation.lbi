@@ -1,0 +1,20 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<header>
+<nav id="top-nav">
+<h2 class="fl"><a href="../index.html">Monstrator</a></h2>
+<ul class="fr ul-login">
+<li><a href="../login.html">Login</a> </li>
+<li>|</li>
+<li><a href="../registration.html">Register</a></li>
+<li>|</li>
+<li><a href="../contact_us.html">Contact Us</a></li>
+<li><a href="#" class="npdr"><img src="../images/inputs/btn_postProject.png" alt="Post a Project" width="148" height="38"></a></li>
+</ul>
+
+<ul class="fr ul-logout">
+<li>Welcome Time Cooper,  </li>
+<li><a href="../index.html" class="npdr">logout</a></li>
+</ul>
+<div class="clear"></div>
+</nav>
+</header>
